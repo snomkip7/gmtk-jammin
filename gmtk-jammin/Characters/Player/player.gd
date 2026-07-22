@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
-var speed = 50 
+var maxSpeed = 50
+var speed = 50
+var gravity = 10
+var dashVelocity = Vector3(100, 40, 0)
 
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
@@ -19,6 +22,10 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("dash"):
 		print("ZOOMY TIME")
+		velocity += dashVelocity
+		
+	if !is_on_floor():
+		velocity.y += gravity
 	
 	move_and_slide()
 	
