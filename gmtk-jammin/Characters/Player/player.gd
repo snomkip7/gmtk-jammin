@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 var maxSpeed = 50
 var speed = 50
-var gravity = 10
-var dashVelocity = Vector3(100, 40, 0)
+var gravity = -10
+var dashVelocity = Vector3(0, 40, -300)
 
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
