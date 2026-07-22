@@ -12,12 +12,23 @@ config_version=5
 
 config/name="GMTK Jammin"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Art/icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Assets/Art/": "orange",
+"res://Assets/Music/": "yellow",
+"res://Characters/": "green",
+"res://Characters/Player/": "blue",
+"res://Levels/": "purple"
+}
 
 [physics]
 
