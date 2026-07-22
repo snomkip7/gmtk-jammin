@@ -2,8 +2,10 @@ extends CharacterBody3D
 
 var speed = 50 
 
+@onready var camera: Camera3D = $Camera
+@onready var sprite: Sprite3D = $PlayerSprite
+
 func _ready():
-	global.cameraRotation = $Camera.global_basis
 	global.player = self
 	
 
@@ -14,6 +16,9 @@ func _physics_process(delta: float) -> void:
 		velocity = direction.normalized() * speed
 	else:
 		velocity = Vector3.ZERO
+		
+	if Input.is_action_just_pressed("dash"):
+		print("ZOOMY TIME")
 	
 	move_and_slide()
 	
