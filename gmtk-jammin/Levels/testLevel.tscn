@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://dn48wp7o25hfv"]
 
+[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="1_ftlgd"]
+[ext_resource type="PackedScene" uid="uid://cnyn1faxtwlqv" path="res://Characters/Player/player.tscn" id="2_6ehle"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
+size = Vector3(64, 1, 64)
+
 [node name="TestLevel" type="Node3D" unique_id=1896238535]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1637331246]
+collision_mask = 3
+
+[node name="Sprite" type="Sprite3D" parent="Floor" unique_id=516245158]
+transform = Transform3D(50, 0, 0, 0, -2.1855694e-06, -50, 0, 50, -2.1855694e-06, 0, 0, 0)
+texture = ExtResource("1_ftlgd")
+
+[node name="Collisionshape" type="CollisionShape3D" parent="Floor" unique_id=1844157627]
+shape = SubResource("BoxShape3D_uyxol")
+
+[node name="Bush" type="Node3D" parent="." unique_id=35900893]
+
+[node name="Sprite" type="Sprite3D" parent="Bush" unique_id=1045341436]
+
+[node name="Area" type="Area3D" parent="Bush" unique_id=611176308]
+
+[node name="Player" parent="." unique_id=940730692 instance=ExtResource("2_6ehle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
