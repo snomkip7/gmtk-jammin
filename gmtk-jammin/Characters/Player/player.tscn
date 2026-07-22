@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://cnyn1faxtwlqv"]
 
+[ext_resource type="Script" uid="uid://5ergdx73ud73" path="res://Characters/Player/player.gd" id="1_j341n"]
+[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="2_cue0d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
+height = 1.3449707
+
 [node name="Player" type="CharacterBody3D" unique_id=940730692]
+script = ExtResource("1_j341n")
+
+[node name="PlayerSprite" type="Sprite3D" parent="." unique_id=1041185233]
+texture = ExtResource("2_cue0d")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=534395896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018676758, 0)
+shape = SubResource("CapsuleShape3D_t3xld")
