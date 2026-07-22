@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK Jammin"
+run/main_scene="uid://dn48wp7o25hfv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
+
+[autoload]
+
+global="*uid://bkuqcmxuj1m80"
 
 [display]
 
@@ -26,6 +31,7 @@ folder_colors={
 "res://Assets/Art/": "orange",
 "res://Assets/Music/": "yellow",
 "res://Characters/": "green",
+"res://Characters/Other/": "teal",
 "res://Characters/Player/": "blue",
 "res://Levels/": "purple"
 }
