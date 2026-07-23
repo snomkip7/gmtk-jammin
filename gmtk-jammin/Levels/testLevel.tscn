@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://dn48wp7o25hfv"]
 
-[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="1_ftlgd"]
 [ext_resource type="PackedScene" uid="uid://cnyn1faxtwlqv" path="res://Characters/Player/player.tscn" id="2_6ehle"]
 [ext_resource type="PackedScene" uid="uid://ci2i2wgrao01r" path="res://Characters/Bush/bush.tscn" id="2_faoc1"]
 [ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
 [ext_resource type="PackedScene" uid="uid://cu6oyjx53iyxl" path="res://Characters/NPC/npcGeneric.tscn" id="5_owrup"]
+[ext_resource type="PackedScene" uid="uid://drv8gbiosk3pm" path="res://Characters/Tree/tree.tscn" id="6_houwy"]
+
+[sub_resource type="Gradient" id="Gradient_owrup"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.44352406, 0.48740196, 0.21728417, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ovcht"]
+gradient = SubResource("Gradient_owrup")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
 size = Vector3(89.46484, 1, 89.578125)
@@ -12,8 +19,8 @@ size = Vector3(89.46484, 1, 89.578125)
 [node name="TestLevel" type="Node3D" unique_id=1896238535]
 
 [node name="TempFloorSprite" type="Sprite3D" parent="." unique_id=516245158]
-transform = Transform3D(70, 0, 0, 0, -3.059797e-06, -70, 0, 70, -3.059797e-06, 0, 0, 0)
-texture = ExtResource("1_ftlgd")
+transform = Transform3D(137.92, 0, 0, 0, -6.0286748e-06, -137.92, 0, 137.92, -6.0286748e-06, 0, 0, 0)
+texture = SubResource("GradientTexture2D_ovcht")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1637331246]
 collision_mask = 3
@@ -25,7 +32,7 @@ shape = SubResource("BoxShape3D_uyxol")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1331263, 0.5486202, 0)
 
 [node name="Bush2" parent="." unique_id=579189497 instance=ExtResource("2_faoc1")]
-transform = Transform3D(1.845, 0, 0, 0, 1.845, 0, 0, 0, 1.845, -9.947537, 1.26299, -5.4915466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.947537, 0.018903732, -5.4915466)
 
 [node name="Player" parent="." unique_id=940730692 instance=ExtResource("2_6ehle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
@@ -34,6 +41,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
 
 [node name="Camera" parent="IngameCamera" index="0" unique_id=245154464]
 transform = Transform3D(-0.91395146, 0, -0.40582356, 0, 1, 0, 0.40582356, 0, -0.91395146, -9.648613, 3.2263012, -16.398314)
+
+[node name="CameraCollision" parent="IngameCamera/Camera" index="7" unique_id=341722982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CameraCollsiionShape" parent="IngameCamera/Camera/CameraCollision" index="0" unique_id=399405889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47450984, 0)
 
 [node name="NPCGeneric" parent="." unique_id=1804335163 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10422379, 1.4767098, -2.524253)
@@ -53,5 +66,11 @@ camera = NodePath("../IngameCamera")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8564634, 1.4767089, -7.3926535)
 aggression = 1
 camera = NodePath("../IngameCamera")
+
+[node name="Tree" parent="." unique_id=1335887509 instance=ExtResource("6_houwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15792, 0, -12.084877)
+
+[node name="Tree2" parent="." unique_id=970989920 instance=ExtResource("6_houwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.789123, -4.7683716e-07, -7.46105)
 
 [editable path="IngameCamera"]

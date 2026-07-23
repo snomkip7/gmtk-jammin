@@ -44,7 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 0.9009048, 0.4340168, 0, -0.4340168, 0.90090
 
 [node name="Photo" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=1673464055]
 position = Vector2(578, 320)
-scale = Vector2(0.5, 0.5)
 
 [node name="Timer" type="RichTextLabel" parent="Camera/PhotoLayer" unique_id=637810028]
 anchors_preset = 5
