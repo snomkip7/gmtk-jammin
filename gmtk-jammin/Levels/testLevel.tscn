@@ -23,6 +23,9 @@ shape = SubResource("BoxShape3D_uyxol")
 [node name="Bush" parent="." unique_id=746014710 instance=ExtResource("2_faoc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1331263, 0.5486202, 0)
 
+[node name="Bush2" parent="." unique_id=579189497 instance=ExtResource("2_faoc1")]
+transform = Transform3D(1.845, 0, 0, 0, 1.845, 0, 0, 0, 1.845, -9.947537, 1.26299, -5.4915466)
+
 [node name="Player" parent="." unique_id=940730692 instance=ExtResource("2_6ehle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
 
