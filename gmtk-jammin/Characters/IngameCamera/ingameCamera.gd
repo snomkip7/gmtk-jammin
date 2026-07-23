@@ -21,15 +21,15 @@ func _on_shutter_timeout() -> void:
 	#get_tree().current_scene.get_node("NPCGeneric").trigger(1)
 	
 	var score: float = 0
-	for x: int in img.get_width():
-		for y: int in img.get_height():
+	for x: int in img.get_width()/2:
+		for y: int in img.get_height()/2:
 			#if img.get_pixel(x, y).is_equal_approx(Color("9E80BC")):
-			if colorEqual(img.get_pixel(x, y), Color("9E80BC")):
+			if colorEqual(img.get_pixel(x*2, y*2), Color("9E80BC")):
 				score += 1
 			#print(img.get_pixel(x*5, y*5))
 			#print(x*5, " ", y*5)
 	print(score, " pixels")
-	score /= (img.get_height()*img.get_width())
+	score /= (img.get_height()*img.get_width()/4)
 	print(score, "%")
 	
 	print(sqrt(score)*1000)
