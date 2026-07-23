@@ -35,24 +35,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
 [node name="Camera" parent="IngameCamera" index="0" unique_id=245154464]
 transform = Transform3D(-0.91395146, 0, -0.40582356, 0, 1, 0, 0.40582356, 0, -0.91395146, -9.648613, 3.2263012, -16.398314)
 
-[node name="Leg1" parent="IngameCamera/Camera" index="0" unique_id=828999595]
-alpha_cut = 2
-
-[node name="Leg2" parent="IngameCamera/Camera" index="1" unique_id=1965007074]
-alpha_cut = 2
-
-[node name="Leg3" parent="IngameCamera/Camera" index="2" unique_id=1789625931]
-alpha_cut = 2
-
-[node name="Box" parent="IngameCamera/Camera" index="3" unique_id=984537651]
-alpha_cut = 2
-
-[node name="Box2" parent="IngameCamera/Camera" index="4" unique_id=751586275]
-alpha_cut = 2
-
 [node name="NPCGeneric" parent="." unique_id=1804335163 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10422379, 1.4767098, -2.524253)
 aggression = 3
+camera = NodePath("../IngameCamera")
+
+[node name="NPCGeneric2" parent="." unique_id=1523086084 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.485565, 1.4767098, -9.29117)
+camera = NodePath("../IngameCamera")
+
+[node name="NPCGeneric3" parent="." unique_id=951373873 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.17301, 1.4767098, 1.9779124)
+aggression = 2
+camera = NodePath("../IngameCamera")
+
+[node name="NPCGeneric4" parent="." unique_id=2057223023 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8564634, 1.4767089, -7.3926535)
+aggression = 1
 camera = NodePath("../IngameCamera")
 
 [editable path="IngameCamera"]
