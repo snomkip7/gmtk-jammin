@@ -1,23 +1,40 @@
 [gd_scene format=3 uid="uid://cnyn1faxtwlqv"]
 
 [ext_resource type="Script" uid="uid://5ergdx73ud73" path="res://Characters/Player/player.gd" id="1_j341n"]
+[ext_resource type="Texture2D" uid="uid://bsklgsx0n35kk" path="res://Assets/Art/ProtoGuy.png" id="2_bqsbk"]
 [ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="2_cue0d"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3xld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bqsbk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 0.0
+}]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
-height = 1.3449707
+height = 2.8413086
 
 [node name="Player" type="CharacterBody3D" unique_id=940730692]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_j341n")
 
-[node name="PlayerSprite" type="Sprite3D" parent="." unique_id=1041185233]
+[node name="PlayerSprite" type="AnimatedSprite3D" parent="." unique_id=1809710141]
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_t3xld")
+
+[node name="PlayerSpriteOld" type="Sprite3D" parent="." unique_id=1041185233]
 transform = Transform3D(1, 0, 0, 0, 0.91929096, 0.3935786, 0, -0.3935786, 0.91929096, 0, 0, 0)
+visible = false
 alpha_cut = 2
 texture = ExtResource("2_cue0d")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=534395896]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018676758, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0435791, 0)
 shape = SubResource("CapsuleShape3D_t3xld")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1072952929]
@@ -28,6 +45,19 @@ transform = Transform3D(1, 0, 0, 0, 0.6707355, 0.7416967, 0, -0.7416967, 0.67073
 [node name="Photo" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=1673464055]
 position = Vector2(578, 320)
 scale = Vector2(0.5, 0.5)
+
+[node name="Timer" type="RichTextLabel" parent="Camera/PhotoLayer" unique_id=637810028]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.5
+offset_right = 69.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "1:00"
+scroll_active = false
+horizontal_alignment = 1
 
 [node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
 one_shot = true

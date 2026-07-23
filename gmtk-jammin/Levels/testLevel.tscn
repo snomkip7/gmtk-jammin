@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cnyn1faxtwlqv" path="res://Characters/Player/player.tscn" id="2_6ehle"]
 [ext_resource type="PackedScene" uid="uid://ci2i2wgrao01r" path="res://Characters/Bush/bush.tscn" id="2_faoc1"]
 [ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
+[ext_resource type="PackedScene" uid="uid://cu6oyjx53iyxl" path="res://Characters/NPC/npcGeneric.tscn" id="5_owrup"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
 size = Vector3(89.46484, 1, 89.578125)
@@ -33,5 +34,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
 
 [node name="Camera" parent="IngameCamera" index="1" unique_id=245154464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2263012, 10.142351)
+
+[node name="NPCGeneric" parent="." unique_id=1804335163 instance=ExtResource("5_owrup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10422379, 1.4767098, -2.524253)
+aggression = 2
 
 [editable path="IngameCamera"]

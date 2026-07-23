@@ -7,3 +7,4 @@ func _physics_process(delta: float) -> void:
 func _on_shutter_timeout() -> void:
 	print("Timer ran out")
 	global.player.photo.texture = ImageTexture.create_from_image(get_texture().get_image())
+	get_tree().current_scene.get_node("NPCGeneric").trigger(1)

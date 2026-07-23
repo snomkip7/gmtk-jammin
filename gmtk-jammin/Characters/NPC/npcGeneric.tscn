@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cu6oyjx53iyxl"]
+
+[ext_resource type="Texture2D" uid="uid://bsklgsx0n35kk" path="res://Assets/Art/ProtoGuy.png" id="1_nsnf2"]
+[ext_resource type="Script" uid="uid://c4snryv7342wm" path="res://Characters/NPC/npcGeneric.gd" id="1_xt5kw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3xld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nsnf2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
+height = 2.7995605
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_t3xld"]
+radius = 1.6572266
+
+[node name="NPCGeneric" type="CharacterBody3D" unique_id=1804335163]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_xt5kw")
+
+[node name="NPCSprite" type="AnimatedSprite3D" parent="." unique_id=232379244]
+flip_h = true
+modulate = Color(1, 0.43529412, 0.11372549, 1)
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_t3xld")
+
+[node name="NPCCollision" type="CollisionShape3D" parent="." unique_id=475502125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051635742, 0)
+shape = SubResource("CapsuleShape3D_t3xld")
+
+[node name="AngerTimer" type="Timer" parent="." unique_id=1788381569]
+wait_time = 1.5
+
+[node name="PersonalSpace" type="Area3D" parent="." unique_id=1357297632]
+collision_layer = 0
+collision_mask = 2
+
+[node name="SpaceCollision" type="CollisionShape3D" parent="PersonalSpace" unique_id=1752013811]
+shape = SubResource("CylinderShape3D_t3xld")
