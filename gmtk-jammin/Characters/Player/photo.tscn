@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dvos4h5kfyx0a"]
+
+[ext_resource type="Script" uid="uid://r73gt1enb1a8" path="res://Characters/Player/photo.gd" id="1_j8pcm"]
+
+[node name="Photo" type="Sprite2D" unique_id=1658940409]
+position = Vector2(0, -1)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_j8pcm")
+
+[node name="DeleteTimer" type="Timer" parent="." unique_id=199021112]
+wait_time = 3.0
+one_shot = true

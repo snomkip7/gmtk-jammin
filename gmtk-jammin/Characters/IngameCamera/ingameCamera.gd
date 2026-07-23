@@ -13,7 +13,8 @@ func _physics_process(delta: float) -> void:
 func _on_shutter_timeout() -> void:
 	print("Timer ran out")
 	var img = get_texture().get_image()
-	global.player.photo.texture = ImageTexture.create_from_image(img)
+	if(img == null):
+		return
 	print(img.get_height())
 	print(img.get_width())
 	print(img.get_height()*img.get_width())
@@ -32,6 +33,7 @@ func _on_shutter_timeout() -> void:
 	print(score, "%")
 	
 	print(sqrt(score)*1000)
+	global.player.createImage(img)
 	
 func colorEqual(c1: Color, c2: Color):
 	if abs(c1.r8-c2.r8) < 10 && abs(c1.g8-c2.g8) < 10 && abs(c1.b8-c2.b8) < 10:
