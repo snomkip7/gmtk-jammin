@@ -13,6 +13,7 @@ points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6,
 height = 1.6420898
 
 [node name="SubViewport" type="SubViewport" unique_id=1128294062]
+size = Vector2i(640, 400)
 render_target_update_mode = 3
 script = ExtResource("1_n5pxx")
 
