@@ -32,8 +32,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
 
 [node name="IngameCamera" parent="." unique_id=31014911 instance=ExtResource("4_faoc1")]
 
-[node name="Camera" parent="IngameCamera" index="1" unique_id=245154464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2263012, 10.142351)
+[node name="Camera" parent="IngameCamera" index="0" unique_id=245154464]
+transform = Transform3D(-0.91395146, 0, -0.40582356, 0, 1, 0, 0.40582356, 0, -0.91395146, -9.648613, 3.2263012, -16.398314)
+
+[node name="Leg1" parent="IngameCamera/Camera" index="0" unique_id=828999595]
+alpha_cut = 2
+
+[node name="Leg2" parent="IngameCamera/Camera" index="1" unique_id=1965007074]
+alpha_cut = 2
+
+[node name="Leg3" parent="IngameCamera/Camera" index="2" unique_id=1789625931]
+alpha_cut = 2
+
+[node name="Box" parent="IngameCamera/Camera" index="3" unique_id=984537651]
+alpha_cut = 2
+
+[node name="Box2" parent="IngameCamera/Camera" index="4" unique_id=751586275]
+alpha_cut = 2
 
 [node name="NPCGeneric" parent="." unique_id=1804335163 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10422379, 1.4767098, -2.524253)

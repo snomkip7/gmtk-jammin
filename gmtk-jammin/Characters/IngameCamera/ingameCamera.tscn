@@ -19,26 +19,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.397455, 0)
 [node name="Leg1" type="Sprite3D" parent="Camera" unique_id=828999595]
 transform = Transform3D(-4.222196e-09, -1.131334e-08, 1, -0.025881905, 0.9659258, 0, -0.09659258, -0.25881904, -4.371139e-08, 0, -0.7622275, 0.23384404)
 modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
 [node name="Leg2" type="Sprite3D" parent="Camera" unique_id=1965007074]
 transform = Transform3D(0.06830127, 0.18301268, -0.70710677, -0.025881905, 0.96592575, 0, 0.06830127, 0.18301268, 0.70710677, -0.16551733, -0.7622275, -0.17771193)
 modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
 [node name="Leg3" type="Sprite3D" parent="Camera" unique_id=1789625931]
 transform = Transform3D(-0.040821802, -0.10938167, -0.9063079, -0.025881907, 0.9659258, 0, 0.087542616, 0.23456971, -0.4226184, 0.12078285, -0.7622275, -0.2090258)
 modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
 [node name="Box" type="Sprite3D" parent="Camera" unique_id=984537651]
 transform = Transform3D(-8.960835e-09, 0, 1, 0, 0.19, 0, -0.205, 0, -4.371139e-08, 0, 0, -0.14195299)
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
+alpha_cut = 2
 texture = ExtResource("2_hjumk")
 
 [node name="Box2" type="Sprite3D" parent="Camera" unique_id=751586275]
 transform = Transform3D(-4.808253e-09, 0, 1, 0, 0.32, 0, -0.11, 0, -4.371139e-08, 0, 0, 0.027282327)
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
+alpha_cut = 2
 texture = ExtResource("2_hjumk")
 
 [node name="TimeDisplay" type="Label3D" parent="Camera" unique_id=243198383]
