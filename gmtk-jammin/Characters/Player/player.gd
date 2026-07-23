@@ -10,10 +10,13 @@ var dashing = false
 var moveVelocity: Vector3 = Vector3.ZERO
 var knockbackVelocity: Vector3 = Vector3.ZERO
 var knockbackDeceleration = 7
+var numPhotos = 0
 @onready var camera: Camera3D = $Camera
 @onready var sprite: AnimatedSprite3D = $PlayerSprite
-@onready var photo: Sprite2D = $Camera/PhotoLayer/Photo
 @onready var timer: RichTextLabel = $Camera/PhotoLayer/Timer
+@onready var photoLayer = $Camera/PhotoLayer
+
+const PHOTO = preload("res://Characters/Player/photo.tscn")
 
 func _ready():
 	global.player = self
@@ -48,3 +51,10 @@ func _physics_process(_delta: float) -> void:
 
 func dashEnd() -> void:
 	dashing = false
+
+func createImage(img: Image) -> void:
+	var photo = PHOTO.instantiate()
+	photoLayer.add_child(photo)
+	numPhotos += 1
+	photo.position = Vector2(187.0,553.0)
+	photo.texture = ImageTexture.create_from_image(img)
