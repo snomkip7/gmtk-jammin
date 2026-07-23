@@ -1,12 +1,58 @@
 [gd_scene format=3 uid="uid://brv85e8v3ykjv"]
 
 [ext_resource type="Script" uid="uid://dbb6fyt26h2ig" path="res://Characters/IngameCamera/ingameCamera.gd" id="1_n5pxx"]
+[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="2_hjumk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bywd0"]
+load_path = "res://.godot/imported/icon.svg-18c1c52c6ac344ff8cf82551d72cfecd.s3tc.ctex"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hjumk"]
+points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 1, 1, -5, 1, -1, -5, -1, 1, -5, -1, -1, -5)
 
 [node name="SubViewport" type="SubViewport" unique_id=1128294062]
 render_target_update_mode = 3
 script = ExtResource("1_n5pxx")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=245154464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.397455, 0)
+
+[node name="Leg1" type="Sprite3D" parent="Camera" unique_id=828999595]
+transform = Transform3D(-4.222196e-09, -1.131334e-08, 1, -0.025881905, 0.9659258, 0, -0.09659258, -0.25881904, -4.371139e-08, 0, -0.7622275, 0.23384404)
+modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+texture = SubResource("CompressedTexture2D_bywd0")
+
+[node name="Leg2" type="Sprite3D" parent="Camera" unique_id=1965007074]
+transform = Transform3D(0.06830127, 0.18301268, -0.70710677, -0.025881905, 0.96592575, 0, 0.06830127, 0.18301268, 0.70710677, -0.16551733, -0.7622275, -0.17771193)
+modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+texture = SubResource("CompressedTexture2D_bywd0")
+
+[node name="Leg3" type="Sprite3D" parent="Camera" unique_id=1789625931]
+transform = Transform3D(-0.040821802, -0.10938167, -0.9063079, -0.025881907, 0.9659258, 0, 0.087542616, 0.23456971, -0.4226184, 0.12078285, -0.7622275, -0.2090258)
+modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+texture = SubResource("CompressedTexture2D_bywd0")
+
+[node name="Box" type="Sprite3D" parent="Camera" unique_id=984537651]
+transform = Transform3D(-8.960835e-09, 0, 1, 0, 0.19, 0, -0.205, 0, -4.371139e-08, 0, 0, -0.14195299)
+modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
+texture = ExtResource("2_hjumk")
+
+[node name="Box2" type="Sprite3D" parent="Camera" unique_id=751586275]
+transform = Transform3D(-4.808253e-09, 0, 1, 0, 0.32, 0, -0.11, 0, -4.371139e-08, 0, 0, 0.027282327)
+modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
+texture = ExtResource("2_hjumk")
+
+[node name="TimeDisplay" type="Label3D" parent="Camera" unique_id=243198383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37459397, 0)
+font_size = 64
+outline_size = 20
+
+[node name="PlayerDetection" type="Area3D" parent="Camera" unique_id=1110258325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+collision_layer = 0
+collision_mask = 2
+
+[node name="Hitbox" type="CollisionShape3D" parent="Camera/PlayerDetection" unique_id=2129486090]
+shape = SubResource("ConvexPolygonShape3D_hjumk")
 
 [node name="Shutter" type="Timer" parent="." unique_id=1336454911]
 wait_time = 3.0
