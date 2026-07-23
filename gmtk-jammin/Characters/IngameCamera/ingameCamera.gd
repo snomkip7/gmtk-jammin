@@ -12,18 +12,29 @@ func _physics_process(delta: float) -> void:
 
 func _on_shutter_timeout() -> void:
 	print("Timer ran out")
-	global.player.photo.texture = ImageTexture.create_from_image(get_texture().get_image())
-	print(get_texture().get_image().get_height())
-	print(get_texture().get_image().get_width())
-	print(get_texture().get_image().get_height()*get_texture().get_image().get_width())
+	var img = get_texture().get_image()
+	global.player.photo.texture = ImageTexture.create_from_image(img)
+	print(img.get_height())
+	print(img.get_width())
+	print(img.get_height()*img.get_width())
 	#get_tree().current_scene.get_node("NPCGeneric").trigger(1)
+	
 	var score: float = 0
-	for x: int in get_texture().get_image().get_width()/10:
-		for y: int in get_texture().get_image().get_height()/10:
-			if get_texture().get_image().get_pixel(x*5, y*5) == Color("9E80BC"):
+	for x: int in img.get_width():
+		for y: int in img.get_height():
+			#if img.get_pixel(x, y).is_equal_approx(Color("9E80BC")):
+			if colorEqual(img.get_pixel(x, y), Color("9E80BC")):
 				score += 1
-			print(get_texture().get_image().get_pixel(x*5, y*5))
-			print(x*5, y*5)
+			#print(img.get_pixel(x*5, y*5))
+			#print(x*5, " ", y*5)
 	print(score, " pixels")
-	score /= get_texture().get_image().get_height()*get_texture().get_image().get_width()
+	score /= (img.get_height()*img.get_width())
 	print(score, "%")
+	
+	print(sqrt(score)*1000)
+	
+func colorEqual(c1: Color, c2: Color):
+	if abs(c1.r8-c2.r8) < 10 && abs(c1.g8-c2.g8) < 10 && abs(c1.b8-c2.b8) < 10:
+		return true
+	else:
+		return false
