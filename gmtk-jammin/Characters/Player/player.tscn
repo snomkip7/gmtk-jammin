@@ -38,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0435791, 0)
 shape = SubResource("CapsuleShape3D_t3xld")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1072952929]
-transform = Transform3D(1, 0, 0, 0, 0.6707355, 0.7416967, 0, -0.7416967, 0.6707355, 0, 5.1817617, 4.987616)
+transform = Transform3D(1, 0, 0, 0, 0.9477192, 0.31910557, 0, -0.31910557, 0.9477192, 0, 3.4922113, 4.987616)
 
 [node name="PhotoLayer" type="CanvasLayer" parent="Camera" unique_id=1991387337]
 

@@ -6,9 +6,6 @@
 render_target_update_mode = 3
 script = ExtResource("1_n5pxx")
 
-[node name="IngameCamera" type="Node3D" parent="." unique_id=31014911]
-visible = false
-
 [node name="Camera" type="Camera3D" parent="." unique_id=245154464]
 
 [node name="Shutter" type="Timer" parent="." unique_id=1336454911]
