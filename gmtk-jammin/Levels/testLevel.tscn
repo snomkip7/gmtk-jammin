@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
-size = Vector3(64, 1, 64)
+size = Vector3(89.46484, 1, 89.578125)
 
 [node name="TestLevel" type="Node3D" unique_id=1896238535]
 
 [node name="TempFloorSprite" type="Sprite3D" parent="." unique_id=516245158]
-transform = Transform3D(50, 0, 0, 0, -2.1855694e-06, -50, 0, 50, -2.1855694e-06, 0, 0, 0)
+transform = Transform3D(70, 0, 0, 0, -3.059797e-06, -70, 0, 70, -3.059797e-06, 0, 0, 0)
 texture = ExtResource("1_ftlgd")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1637331246]
@@ -22,6 +22,9 @@ shape = SubResource("BoxShape3D_uyxol")
 
 [node name="Bush" parent="." unique_id=746014710 instance=ExtResource("2_faoc1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1331263, 0.5486202, 0)
+
+[node name="Bush2" parent="." unique_id=579189497 instance=ExtResource("2_faoc1")]
+transform = Transform3D(1.845, 0, 0, 0, 1.845, 0, 0, 0, 1.845, -9.947537, 1.26299, -5.4915466)
 
 [node name="Player" parent="." unique_id=940730692 instance=ExtResource("2_6ehle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
