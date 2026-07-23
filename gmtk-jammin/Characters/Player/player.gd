@@ -23,9 +23,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO, acceleration)
 		
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") && $DashCooldown.is_stopped():
 		print("ZOOMY TIME")
 		velocity += Vector3(dashVelocity.x * direction.x, dashVelocity.y, dashVelocity.x * direction.z)
+		$DashCooldown.start()
 		
 	if !is_on_floor():
 		velocity.y += gravity

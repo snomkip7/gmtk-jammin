@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
-size = Vector3(64, 1, 64)
+size = Vector3(89.46484, 1, 89.578125)
 
 [node name="TestLevel" type="Node3D" unique_id=1896238535]
 
 [node name="TempFloorSprite" type="Sprite3D" parent="." unique_id=516245158]
-transform = Transform3D(50, 0, 0, 0, -2.1855694e-06, -50, 0, 50, -2.1855694e-06, 0, 0, 0)
+transform = Transform3D(70, 0, 0, 0, -3.059797e-06, -70, 0, 70, -3.059797e-06, 0, 0, 0)
 texture = ExtResource("1_ftlgd")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1637331246]

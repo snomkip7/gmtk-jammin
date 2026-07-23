@@ -27,3 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 0.6707355, 0.7416967, 0, -0.7416967, 0.67073
 [node name="Photo" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=1673464055]
 position = Vector2(578, 320)
 scale = Vector2(0.5, 0.5)
+
+[node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
+one_shot = true
