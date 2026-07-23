@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ci2i2wgrao01r" path="res://Characters/Bush/bush.tscn" id="2_faoc1"]
 [ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
 [ext_resource type="PackedScene" uid="uid://cu6oyjx53iyxl" path="res://Characters/NPC/npcGeneric.tscn" id="5_owrup"]
+[ext_resource type="PackedScene" uid="uid://drv8gbiosk3pm" path="res://Characters/Tree/tree.tscn" id="6_houwy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
 size = Vector3(89.46484, 1, 89.578125)
@@ -25,7 +26,7 @@ shape = SubResource("BoxShape3D_uyxol")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1331263, 0.5486202, 0)
 
 [node name="Bush2" parent="." unique_id=579189497 instance=ExtResource("2_faoc1")]
-transform = Transform3D(1.845, 0, 0, 0, 1.845, 0, 0, 0, 1.845, -9.947537, 1.26299, -5.4915466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.947537, 0.018903732, -5.4915466)
 
 [node name="Player" parent="." unique_id=940730692 instance=ExtResource("2_6ehle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
@@ -53,5 +54,11 @@ camera = NodePath("../IngameCamera")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8564634, 1.4767089, -7.3926535)
 aggression = 1
 camera = NodePath("../IngameCamera")
+
+[node name="Tree" parent="." unique_id=1335887509 instance=ExtResource("6_houwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15792, 0, -12.084877)
+
+[node name="Tree2" parent="." unique_id=970989920 instance=ExtResource("6_houwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.789123, -4.7683716e-07, -7.46105)
 
 [editable path="IngameCamera"]

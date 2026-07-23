@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ci2i2wgrao01r"]
 
 [ext_resource type="Script" uid="uid://bvfx4bj7d6aol" path="res://Characters/Bush/bush.gd" id="1_2xqvq"]
-[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="1_qjqsf"]
+[ext_resource type="Texture2D" uid="uid://duahsysklhmyu" path="res://Assets/Art/Bush.png" id="2_2xqvq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftlgd"]
+size = Vector3(3.0615234, 3.0902343, 3.258789)
 
 [node name="Bush" type="Area3D" unique_id=746014710]
 collision_layer = 4
@@ -11,12 +12,17 @@ collision_mask = 2
 script = ExtResource("1_2xqvq")
 
 [node name="Sprite" type="Sprite3D" parent="." unique_id=78486181]
-transform = Transform3D(1, 0, 0, 0, 0.9697928, -0.24393015, 0, 0.24393015, 0.9697928, 0, 0, 0)
-modulate = Color(0, 1, 0.06666667, 1)
+transform = Transform3D(-0.017452352, 0, 0.9998477, 0, 1, 0, -0.9998477, 0, -0.017452352, 0, 1.832278, 0)
 alpha_cut = 2
-texture = ExtResource("1_qjqsf")
+texture = ExtResource("2_2xqvq")
+
+[node name="Sprite2" type="Sprite3D" parent="." unique_id=2138658690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.832278, 0)
+alpha_cut = 2
+texture = ExtResource("2_2xqvq")
 
 [node name="Collisionshape" type="CollisionShape3D" parent="." unique_id=1888159660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6069405, 0)
 shape = SubResource("BoxShape3D_ftlgd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
