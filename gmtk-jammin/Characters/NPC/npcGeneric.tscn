@@ -17,9 +17,6 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 2.7995605
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_t3xld"]
-radius = 1.6572266
-
 [node name="NPCGeneric" type="CharacterBody3D" unique_id=1804335163]
 collision_layer = 8
 collision_mask = 3
@@ -37,10 +34,10 @@ shape = SubResource("CapsuleShape3D_t3xld")
 
 [node name="AngerTimer" type="Timer" parent="." unique_id=1788381569]
 wait_time = 1.5
+one_shot = true
 
-[node name="PersonalSpace" type="Area3D" parent="." unique_id=1357297632]
-collision_layer = 0
-collision_mask = 2
+[node name="ActionTimer" type="Timer" parent="." unique_id=862910100]
+one_shot = true
 
-[node name="SpaceCollision" type="CollisionShape3D" parent="PersonalSpace" unique_id=1752013811]
-shape = SubResource("CylinderShape3D_t3xld")
+[connection signal="timeout" from="AngerTimer" to="." method="angerCheck"]
+[connection signal="timeout" from="ActionTimer" to="." method="actionEnd"]
