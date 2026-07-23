@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="1_ftlgd"]
 [ext_resource type="PackedScene" uid="uid://cnyn1faxtwlqv" path="res://Characters/Player/player.tscn" id="2_6ehle"]
 [ext_resource type="PackedScene" uid="uid://ci2i2wgrao01r" path="res://Characters/Bush/bush.tscn" id="2_faoc1"]
+[ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
 size = Vector3(64, 1, 64)
@@ -24,3 +25,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1331263, 0.5486202, 0)
 
 [node name="Player" parent="." unique_id=940730692 instance=ExtResource("2_6ehle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
+
+[node name="IngameCamera" parent="." unique_id=31014911 instance=ExtResource("4_faoc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -20.935394)

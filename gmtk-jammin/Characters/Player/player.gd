@@ -9,6 +9,7 @@ var direction = Vector3(0,0,-1) # ALWAYS NORMALIZED
 
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
+@onready var photo: Sprite2D = $Camera/PhotoLayer/Photo
 
 func _ready():
 	global.player = self
