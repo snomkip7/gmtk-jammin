@@ -56,5 +56,5 @@ func createImage(img: Image) -> void:
 	var photo = PHOTO.instantiate()
 	photoLayer.add_child(photo)
 	numPhotos += 1
-	photo.position = Vector2(159.0,547.0)
+	photo.position = Vector2(187.0,553.0)
 	photo.texture = ImageTexture.create_from_image(img)

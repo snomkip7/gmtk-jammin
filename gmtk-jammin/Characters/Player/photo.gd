@@ -11,3 +11,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(deleteTimer.time_left < 1):
 		global_position.y += 10
+
+
+func _on_delete_timer_timeout() -> void:
+	queue_free()

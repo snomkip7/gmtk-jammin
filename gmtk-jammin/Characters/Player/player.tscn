@@ -55,9 +55,6 @@ text = "1:00"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="Marker2D" type="Marker2D" parent="Camera/PhotoLayer" unique_id=1486704718]
-position = Vector2(159, 547)
-
 [node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
 one_shot = true
 
