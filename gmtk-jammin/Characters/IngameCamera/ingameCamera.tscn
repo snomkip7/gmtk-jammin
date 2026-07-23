@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dbb6fyt26h2ig" path="res://Characters/IngameCamera/ingameCamera.gd" id="1_n5pxx"]
 
-[node name="IngameCamera" type="Node3D" unique_id=31014911]
+[node name="SubViewport" type="SubViewport" unique_id=1128294062]
+size = Vector2i(256, 256)
+render_target_update_mode = 3
 script = ExtResource("1_n5pxx")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1128294062]
-size = Vector2i(128, 128)
+[node name="IngameCamera" type="Node3D" parent="." unique_id=31014911]
+visible = false
 
-[node name="Camera" type="Camera3D" parent="SubViewport" unique_id=245154464]
+[node name="Camera" type="Camera3D" parent="." unique_id=245154464]
 
 [node name="Shutter" type="Timer" parent="." unique_id=1336454911]
 wait_time = 3.0

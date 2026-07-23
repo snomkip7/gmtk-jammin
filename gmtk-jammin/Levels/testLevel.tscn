@@ -27,4 +27,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1331263, 0.5486202, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.272438, 0)
 
 [node name="IngameCamera" parent="." unique_id=31014911 instance=ExtResource("4_faoc1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -20.935394)
+
+[node name="Camera" parent="IngameCamera" index="1" unique_id=245154464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2263012, 10.142351)
+
+[editable path="IngameCamera"]
