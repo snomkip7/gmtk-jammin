@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dbb6fyt26h2ig" path="res://Characters/IngameCamera/ingameCamera.gd" id="1_n5pxx"]
 
 [node name="SubViewport" type="SubViewport" unique_id=1128294062]
-size = Vector2i(256, 256)
 render_target_update_mode = 3
 script = ExtResource("1_n5pxx")
 
