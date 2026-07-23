@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd2b5blpmaj46"
+path="res://.godot/imported/camera countdown.mp3-d83469f19549edf3a12ec96de18a1966.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/camera countdown.mp3"
+dest_files=["res://.godot/imported/camera countdown.mp3-d83469f19549edf3a12ec96de18a1966.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
