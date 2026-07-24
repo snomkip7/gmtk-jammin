@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dr2cvowq0dm31"]
+
+[ext_resource type="PackedScene" uid="uid://5tp3pbjuvv5c" path="res://Assets/Art/grass.blend" id="1_mah26"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
+size = Vector3(2, 1, 2)
+
+[node name="grass" unique_id=486955927 instance=ExtResource("1_mah26")]
+
+[node name="Cube" parent="." index="0" unique_id=605831608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Collision" type="StaticBody3D" parent="Cube" index="0" unique_id=1125396966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Hitbox" type="CollisionShape3D" parent="Cube/Collision" index="0" unique_id=892265312]
+shape = SubResource("BoxShape3D_uyxol")
