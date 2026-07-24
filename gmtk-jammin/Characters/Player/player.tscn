@@ -260,6 +260,7 @@ collision_mask = 13
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1520079709]
 libraries/ = SubResource("AnimationLibrary_r5ew0")
 libraries/playerAnims = SubResource("AnimationLibrary_osktb")
+autoplay = &"playerAnims/stand"
 
 [connection signal="timeout" from="DashCooldown" to="." method="dashEnd"]
 [connection signal="body_entered" from="CameraTrigger" to="." method="_on_camera_trigger_body_entered"]
