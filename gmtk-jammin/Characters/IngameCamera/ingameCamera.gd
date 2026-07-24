@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 			for i in NPCRays:
 				var e: CharacterBody3D = i.get_parent()
 				e.doRotate = false
-				e.rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
+				e.get_node("NPCSprite").rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
 
 
 func _on_shutter_timeout() -> void:
@@ -31,7 +31,7 @@ func _on_shutter_timeout() -> void:
 		print("Timer ran out")
 		for i in NPCRays:
 			var e: CharacterBody3D = i.get_parent()
-			e.rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
+			e.get_node("NPCSprite").rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
 			#e.rotation = $Camera.rotation
 		
 		global.player.get_node("PlayerSprite").rotation = Vector3(global.player.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(global.player.global_position.x, -global.player.global_position.z)).angle() + PI/2, global.player.rotation.z)
