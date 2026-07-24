@@ -1,32 +1,109 @@
 [gd_scene format=3 uid="uid://cu6oyjx53iyxl"]
 
-[ext_resource type="Texture2D" uid="uid://bsklgsx0n35kk" path="res://Assets/Art/ProtoGuy.png" id="1_nsnf2"]
 [ext_resource type="Script" uid="uid://c4snryv7342wm" path="res://Characters/NPC/npcGeneric.gd" id="1_xt5kw"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_t3xld"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_nsnf2")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 0.0
-}]
+[ext_resource type="Texture2D" uid="uid://dq5da3guebbmc" path="res://Assets/Art/Stand_Front/0001.png" id="2_xt5kw"]
+[ext_resource type="Texture2D" uid="uid://bfy7i7xiu80ht" path="res://Assets/Art/Stand_Front/0002.png" id="3_8poj5"]
+[ext_resource type="Texture2D" uid="uid://blphljb88dj7f" path="res://Assets/Art/Stand_Angry/0001.png" id="3_tj0mn"]
+[ext_resource type="Texture2D" uid="uid://8776d7xydkfl" path="res://Assets/Art/Stand_Front/0003.png" id="4_iirvy"]
+[ext_resource type="Texture2D" uid="uid://dr1f8dsop6ad6" path="res://Assets/Art/Stand_Angry/0002.png" id="4_pybvp"]
+[ext_resource type="Texture2D" uid="uid://flrnrh72bxqu" path="res://Assets/Art/Stand_Front/0004.png" id="5_t0nm7"]
+[ext_resource type="Texture2D" uid="uid://cnqshjui5ggvl" path="res://Assets/Art/Stand_Angry/0003.png" id="5_x7vxm"]
+[ext_resource type="Texture2D" uid="uid://bxnbpact3g7yo" path="res://Assets/Art/Stand_Angry/0004.png" id="6_0et7b"]
+[ext_resource type="Texture2D" uid="uid://bc865q8pqlkj2" path="res://Assets/Art/Pose_Shock/0001.png" id="10_qw4k1"]
+[ext_resource type="Texture2D" uid="uid://c7u22pqdhpro2" path="res://Assets/Art/Pose_Shock/0002.png" id="11_pwk84"]
+[ext_resource type="Texture2D" uid="uid://c21vwo4ubxrb4" path="res://Assets/Art/Pose_Shock/0003.png" id="12_kts52"]
+[ext_resource type="Texture2D" uid="uid://coar7p63wsrw5" path="res://Assets/Art/Pose_Shock/0004.png" id="13_ot7dp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 2.7995605
+
+[sub_resource type="Animation" id="Animation_cve27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xt5kw")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj0mn"]
+_data = {
+&"RESET": SubResource("Animation_cve27")
+}
+
+[sub_resource type="Animation" id="Animation_pybvp"]
+length = 0.666683353202045
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_tj0mn"), ExtResource("4_pybvp"), ExtResource("5_x7vxm"), ExtResource("6_0et7b")]
+}
+
+[sub_resource type="Animation" id="Animation_x7vxm"]
+length = 0.666683353202045
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_xt5kw"), ExtResource("3_8poj5"), ExtResource("4_iirvy"), ExtResource("5_t0nm7")]
+}
+
+[sub_resource type="Animation" id="Animation_0et7b"]
+length = 0.666683353202045
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_qw4k1"), ExtResource("11_pwk84"), ExtResource("12_kts52"), ExtResource("13_ot7dp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qw4k1"]
+_data = {
+&"standAngry": SubResource("Animation_pybvp"),
+&"standNorm": SubResource("Animation_x7vxm"),
+&"standShock": SubResource("Animation_0et7b")
+}
 
 [node name="NPCGeneric" type="CharacterBody3D" unique_id=1804335163]
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_xt5kw")
 
-[node name="NPCSprite" type="AnimatedSprite3D" parent="." unique_id=232379244]
+[node name="FrontSprite" type="Sprite3D" parent="." unique_id=2021586121]
 flip_h = true
-modulate = Color(1, 0.43529412, 0.11372549, 1)
 alpha_cut = 2
-sprite_frames = SubResource("SpriteFrames_t3xld")
+texture = ExtResource("2_xt5kw")
 
 [node name="NPCCollision" type="CollisionShape3D" parent="." unique_id=475502125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051635742, 0)
@@ -42,6 +119,10 @@ one_shot = true
 [node name="CameraRay" type="RayCast3D" parent="." unique_id=1114152054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8660784, 0)
 collision_mask = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=243421698]
+libraries/ = SubResource("AnimationLibrary_tj0mn")
+libraries/npcAnims = SubResource("AnimationLibrary_qw4k1")
 
 [connection signal="timeout" from="AngerTimer" to="." method="angerCheck"]
 [connection signal="timeout" from="ActionTimer" to="." method="actionEnd"]
