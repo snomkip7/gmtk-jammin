@@ -69,7 +69,7 @@ func _on_shutter_timeout() -> void:
 		global.player.doRotate = true
 		for i in NPCRays:
 				var e: CharacterBody3D = i.get_parent()
-				e.doRotate = false
+				e.doRotate = true
 	
 func colorEqual(c1: Color, c2: Color):
 	if abs(c1.r8-c2.r8) < 10 && abs(c1.g8-c2.g8) < 10 && abs(c1.b8-c2.b8) < 10:
