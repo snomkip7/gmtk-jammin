@@ -29,12 +29,12 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://Assets/": "red",
-"res://Assets/Art/": "orange",
-"res://Assets/Music/": "yellow",
-"res://Characters/": "green",
-"res://Characters/Other/": "teal",
-"res://Characters/Player/": "blue",
-"res://Levels/": "purple"
+"res://Assets/Art/": "red",
+"res://Assets/Music/": "red",
+"res://Characters/": "orange",
+"res://Characters/Other/": "orange",
+"res://Characters/Player/": "orange",
+"res://Levels/": "yellow"
 }
 
 [input]

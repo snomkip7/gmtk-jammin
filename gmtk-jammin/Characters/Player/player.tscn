@@ -18,6 +18,9 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 2.8413086
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
+size = Vector3(19.168945, 1, 22.795166)
+
 [node name="Player" type="CharacterBody3D" unique_id=940730692]
 collision_layer = 2
 collision_mask = 29
@@ -58,6 +61,14 @@ horizontal_alignment = 1
 [node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
 one_shot = true
 
+[node name="CameraTrigger" type="Area3D" parent="." unique_id=1318030934]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Hitbox" type="CollisionShape3D" parent="CameraTrigger" unique_id=1806205512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.897583)
+shape = SubResource("BoxShape3D_uyxol")
+
 [node name="Raycasts" type="Node3D" parent="." unique_id=777837121]
 
 [node name="FaceTop" type="RayCast3D" parent="Raycasts" unique_id=1729478690]
@@ -89,3 +100,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551508, -1.2959309, 0)
 collision_mask = 13
 
 [connection signal="timeout" from="DashCooldown" to="." method="dashEnd"]
+[connection signal="body_entered" from="CameraTrigger" to="." method="_on_camera_trigger_body_entered"]
