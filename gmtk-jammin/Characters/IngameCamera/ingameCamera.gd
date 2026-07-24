@@ -3,6 +3,7 @@ extends SubViewport
 @onready var shutter: Timer = $Shutter
 @onready var timeDisplay: Label3D = $Camera/TimeDisplay
 @onready var point: Node3D = $Camera/Point
+@onready var entityDetector: Area3D = $Camera/EntityRotator
 
 var NPCRays: Array[RayCast3D] = []
 
@@ -21,6 +22,9 @@ func _physics_process(delta: float) -> void:
 func _on_shutter_timeout() -> void:
 	if(active):
 		print("Timer ran out")
+		var entityArr = entityDetector.get_overlapping_bodies()
+		for e in entityArr:
+			e.rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
 		var img = get_texture().get_image()
 		if(img == null):
 			return
