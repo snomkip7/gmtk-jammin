@@ -43,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47450984, 0)
 
 [node name="NPCGeneric" parent="." unique_id=1804335163 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10422379, 1.4767098, -2.524253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10422379, 3.2338452, -2.524253)
 aggression = 3
 reactionTime = 0.5
 camera = NodePath("../IngameCamera")
@@ -51,7 +51,7 @@ personalSpaceSize = 2.5
 pushRadius = 4.0
 
 [node name="NPCGeneric2" parent="." unique_id=1523086084 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.485565, 1.4767098, -9.29117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.485565, 3.2338452, -9.29117)
 aggression = 0
 reactionTime = 0.5
 camera = NodePath("../IngameCamera")
@@ -59,7 +59,7 @@ personalSpaceSize = 2.5
 pushRadius = 4.0
 
 [node name="NPCGeneric3" parent="." unique_id=951373873 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.17301, 1.4767098, 1.9779124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.17301, 3.2338452, 1.9779124)
 aggression = 2
 reactionTime = 0.5
 camera = NodePath("../IngameCamera")
@@ -67,7 +67,7 @@ personalSpaceSize = 2.5
 pushRadius = 4.0
 
 [node name="NPCGeneric4" parent="." unique_id=2057223023 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8564634, 1.4767089, -7.3926535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8564634, 3.2338443, -7.3926535)
 aggression = 1
 reactionTime = 0.5
 camera = NodePath("../IngameCamera")
@@ -276,16 +276,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.246412, 0, -53.29051)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.21173, 0, -20.908123)
 
 [node name="NPCGeneric5" parent="." unique_id=1927146108 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.967896, 2, 29.904139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.967896, 3.7571354, 29.904139)
 aggression = 2
+reactionTime = 0.5
 camera = NodePath("../IngameCamera2")
 personalSpaceSize = 4.0
 pushRadius = 5.0
 
 [node name="NPCGeneric6" parent="." unique_id=567419043 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.89883, 2, 31.980822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.89883, 3.7571354, 31.980822)
 aggression = 1
+reactionTime = 0.5
 camera = NodePath("../IngameCamera2")
+personalSpaceSize = 2.5
+pushRadius = 4.0
 
 [editable path="IngameCamera"]
 [editable path="IngameCamera2"]

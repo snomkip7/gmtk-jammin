@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://coar7p63wsrw5" path="res://Assets/Art/Pose_Shock/0004.png" id="13_ot7dp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
-height = 2.7995605
+radius = 1.0527344
+height = 7.125824
 
 [sub_resource type="Animation" id="Animation_cve27"]
 length = 0.001
@@ -110,7 +111,7 @@ alpha_cut = 2
 texture = ExtResource("2_xt5kw")
 
 [node name="NPCCollision" type="CollisionShape3D" parent="." unique_id=475502125]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051635742, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16963196, 0)
 shape = SubResource("CapsuleShape3D_t3xld")
 
 [node name="AngerTimer" type="Timer" parent="." unique_id=1788381569]
