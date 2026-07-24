@@ -16,13 +16,15 @@ var speed = 0
 var state = 1 # 1=default, 2 = acting, 3 = recovery
 @onready var startingPoint: Vector3 = global_position
 @onready var animationPlayer: Node = $AnimationPlayer
+var doRotate = true
 
 func _ready() -> void:
 	camera.NPCRays.append($CameraRay)
 
 func _physics_process(_delta: float) -> void:
 	# rotation
-	$NPCSprite.rotation = Vector3(rotation.x, (Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) - Vector2(global_position.x, -global_position.z)).angle() + PI/2, rotation.z)
+	if doRotate:
+		$NPCSprite.rotation = Vector3(rotation.x, (Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) - Vector2(global_position.x, -global_position.z)).angle() + PI/2, rotation.z)
 	
 	$CameraRay.target_position = camera.point.global_position-$CameraRay.global_position
 	$CameraRay.force_raycast_update()
@@ -78,7 +80,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	# if done returning
-	if state == 3 && aggression==3 && (startingPoint-global_position).length() < .5:
+	if state == 3 && aggression==3 && (startingPoint-global_position).length() < .7:
 		state = 1
 
 func trigger(severity: float = 1): # after a photo has been photobombed, severity = how much reaction (1-3)
