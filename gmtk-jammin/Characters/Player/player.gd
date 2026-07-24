@@ -2,15 +2,16 @@ extends CharacterBody3D
 
 var maxSpeed = 50
 var speed = 40
-var acceleration = 10 # how fast player changes movement
-var gravity = -10
-var dashVelocity = Vector2(70, 90)
+var acceleration = 5 # how fast player changes movement
+var gravity = -7
+var dashVelocity = Vector2(110, 60)
 var direction = Vector3(0,0,-1) # ALWAYS NORMALIZED
 var dashing = false
 var moveVelocity: Vector3 = Vector3.ZERO
 var knockbackVelocity: Vector3 = Vector3.ZERO
 var knockbackDeceleration = 7
 var photoArray: Array[Sprite2D] = []
+var doRotate = true # disables rotation
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
@@ -33,15 +34,19 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
-	if is_on_floor() && Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0:
+	if is_on_floor() && !dashing && (Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0): 
 		# movement button is pressed
 		direction = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized()
 		moveVelocity = moveVelocity.move_toward(direction * speed, acceleration)
 		animationPlayer.play("playerAnims/run")
+	elif dashing && !is_on_floor():
+		moveVelocity = moveVelocity.move_toward(Vector3(direction.x*speed, moveVelocity.y, direction.z*speed), acceleration)
 	else:
 		animationPlayer.play("playerAnims/stand")
 		moveVelocity = moveVelocity.move_toward(Vector3.ZERO, acceleration)
-		
+		if Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0:
+			direction = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized()		
+	
 	if Input.is_action_just_pressed("dash") && !dashing && is_on_floor():
 		print("ZOOMY TIME")
 		animationPlayer.play("playerAnims/dash")
@@ -59,7 +64,8 @@ func _physics_process(_delta: float) -> void:
 	
 	move_and_slide()
 	
-	$PlayerSprite.rotation = $Camera.rotation
+	if doRotate:
+		$PlayerSprite.rotation = $Camera.rotation
 
 
 func dashEnd() -> void:

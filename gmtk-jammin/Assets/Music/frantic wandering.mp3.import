@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4e3yx5oxgtkr"
+path="res://.godot/imported/frantic wandering.mp3-2f5cfb555e0beb3b8979d8c7135a12dc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/frantic wandering.mp3"
+dest_files=["res://.godot/imported/frantic wandering.mp3-2f5cfb555e0beb3b8979d8c7135a12dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
