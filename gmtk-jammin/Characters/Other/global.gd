@@ -8,6 +8,9 @@ var musicNormal
 var musicFrantic
 var musicTime = 64.75
 var musicFader
+var frantic = false
+var loopNormal = false
+var loopFrantic = false
 
 func _ready() -> void:
 	musicNormal = AudioStreamPlayer.new()
@@ -23,14 +26,27 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	musicTime -= delta
 	#print(ceili(musicTime))
-	if musicNormal.playing == false and ceili(musicTime) == 64:
-		musicNormal.play()
-	if musicFrantic.playing == false and ceili(musicTime) == 56:
-		musicFrantic.play()
-	if musicTime <= 24:
-		panic()
+	if ceili(musicTime) == 64:
+		loopNormal = true
+		if musicNormal.playing == false:
+			musicNormal.play()
+	if ceili(musicTime) == 56:
+		loopFrantic = true
+		if musicFrantic.playing == false:
+			musicFrantic.play()
+	if frantic:
+		if ceili(musicTime) % 16 == 8:
+			panic()
 	else:
-		calm()
+		if ceili(musicTime) % 16 == 8:
+			calm()
+	if ceili(musicTime) <= 0 and loopNormal == true:
+		musicNormal.play()
+		loopNormal = false
+	if ceili(musicTime) <= -8 and loopFrantic == true:
+		musicFrantic.play()
+		loopFrantic = false
+		musicTime += 72
 		
 	if !paused:
 		time -= delta
@@ -43,6 +59,10 @@ func _physics_process(delta: float) -> void:
 				player.timer.text = str(ceili(time)/60)+":"+str(ceili(time)%60)
 		if time <= 0:
 			endGame()
+		if time <= 25:
+			frantic = true
+		else:
+			frantic = false
 			
 func endGame():
 	# ends the game
