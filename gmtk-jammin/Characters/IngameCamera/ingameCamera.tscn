@@ -7,10 +7,10 @@
 load_path = "res://.godot/imported/icon.svg-18c1c52c6ac344ff8cf82551d72cfecd.s3tc.ctex"
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hjumk"]
-points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 1, 1, -5, 1, -1, -5, -1, 1, -5, -1, -1, -5)
+points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 5, 2.75, -5, 5, -2.75, -5, -5, 2.75, -5, -5, -2.75, -5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bywd0"]
-points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 1, 1, -5, 1, -1, -5, -1, 1, -5, -1, -1, -5)
+points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 5, 2.75, -5, 5, -2.75, -5, -5, 2.75, -5, -5, -2.75, -5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 1.6420898
