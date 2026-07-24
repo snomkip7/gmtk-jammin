@@ -65,7 +65,7 @@ shape = SubResource("ConvexPolygonShape3D_hjumk")
 
 [node name="CameraCollision" type="StaticBody3D" parent="Camera" unique_id=341722982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.13054138)
-collision_layer = 4
+collision_layer = 16
 collision_mask = 2
 
 [node name="CameraCollsiionShape" type="CollisionShape3D" parent="Camera/CameraCollision" unique_id=399405889]
