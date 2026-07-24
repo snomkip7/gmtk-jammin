@@ -3,6 +3,10 @@ extends SubViewport
 @onready var shutter: Timer = $Shutter
 @onready var timeDisplay: Label3D = $Camera/TimeDisplay
 
+var faceScore = 50
+var bodyScore = 25
+var dashScore = 70
+
 func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_released("interact")):
 		$Shutter.start()
@@ -15,9 +19,9 @@ func _on_shutter_timeout() -> void:
 	var img = get_texture().get_image()
 	if(img == null):
 		return
-	print(img.get_height())
-	print(img.get_width())
-	print(img.get_height()*img.get_width())
+	#print(img.get_height())
+	#print(img.get_width())
+	#print(img.get_height()*img.get_width())
 	#get_tree().current_scene.get_node("NPCGeneric").trigger(1)
 	
 	var score: float = 0
@@ -31,8 +35,13 @@ func _on_shutter_timeout() -> void:
 	print(score, " pixels")
 	score /= (img.get_height()*img.get_width()/4)
 	print(score, "%")
+	score = sqrt(score)*1000
 	
-	print(sqrt(score)*1000)
+	print(score, " from being in the img")
+	global.score += score
+	if score > 0:
+		addToScore()
+	
 	global.player.createImage(img)
 	
 func colorEqual(c1: Color, c2: Color):
@@ -40,3 +49,40 @@ func colorEqual(c1: Color, c2: Color):
 		return true
 	else:
 		return false
+		
+func addToScore():
+	
+	if global.player.dashing && !global.player.is_on_floor():
+		global.score += dashScore
+		print("Dashing in the photo! +", dashScore, "!")
+	
+	# checking if the face is the the picture
+	global.player.rft.target_position = timeDisplay.global_position-global.player.rft.global_position
+	global.player.rfb.target_position = timeDisplay.global_position-global.player.rfb.global_position
+	global.player.rfl.target_position = timeDisplay.global_position-global.player.rfl.global_position
+	global.player.rfr.target_position = timeDisplay.global_position-global.player.rfr.global_position
+	
+	global.player.rft.force_raycast_update()
+	global.player.rfb.force_raycast_update()
+	global.player.rfl.force_raycast_update()
+	global.player.rfr.force_raycast_update()
+	# if face is not obscured
+	if !(global.player.rft.is_colliding() && global.player.rfb.is_colliding() && global.player.rfl.is_colliding() && global.player.rfr.is_colliding()):
+		global.score += faceScore
+		print("Face in photo! +", faceScore, "!")
+		
+		#checking if body is in the photo
+		global.player.rbl.target_position = timeDisplay.global_position-global.player.rbl.global_position
+		global.player.rbr.target_position = timeDisplay.global_position-global.player.rbr.global_position
+		global.player.rbb.target_position = timeDisplay.global_position-global.player.rbb.global_position
+	
+		if !(global.player.rbb.is_colliding() && global.player.rbl.is_colliding() && global.player.rbr.is_colliding()):
+			global.score += bodyScore
+			print("Body in photo! +", bodyScore, "!")
+		else:
+			print("no body in photo :(")
+			
+	else:
+		print("no face in photo :(")
+	
+	print("Total Score: ", global.score)
