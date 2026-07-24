@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cnyn1faxtwlqv"]
 
 [ext_resource type="Script" uid="uid://5ergdx73ud73" path="res://Characters/Player/player.gd" id="1_j341n"]
-[ext_resource type="Shader" uid="uid://ck4ndhhro8d8h" path="res://Characters/Player/player.gdshader" id="2_8k5s7"]
 [ext_resource type="Texture2D" uid="uid://cvndpxaoefyy8" path="res://Assets/Art/Stand_Back/0001.png" id="2_j341n"]
 [ext_resource type="Texture2D" uid="uid://cmnnauajpts8r" path="res://Assets/Art/Dash/0001.png" id="3_b6jp0"]
 [ext_resource type="Texture2D" uid="uid://k48u1s6skgtt" path="res://Assets/Art/Run_Back/0001.png" id="3_r5ew0"]
@@ -16,12 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://caqfp4bfdne2n" path="res://Assets/Art/Run_Back/0003.png" id="5_va6lm"]
 [ext_resource type="Texture2D" uid="uid://cn2rjmmbsy2sq" path="res://Assets/Art/Dash/0004.png" id="6_blwrb"]
 [ext_resource type="Texture2D" uid="uid://cokwfr2lb3578" path="res://Assets/Art/Run_Back/0004.png" id="6_u2wkb"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_um21n"]
-shader = ExtResource("2_8k5s7")
-shader_parameter/screen_mode = true
-shader_parameter/num_colors = 3
-shader_parameter/precision = 0.1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 7.5
@@ -221,7 +214,6 @@ collision_mask = 29
 script = ExtResource("1_j341n")
 
 [node name="PlayerSprite" type="Sprite3D" parent="." unique_id=559904878]
-material_overlay = SubResource("ShaderMaterial_um21n")
 alpha_cut = 2
 texture = ExtResource("2_j341n")
 
