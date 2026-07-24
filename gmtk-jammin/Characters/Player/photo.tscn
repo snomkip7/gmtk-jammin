@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://dvos4h5kfyx0a"]
 
 [ext_resource type="Script" uid="uid://r73gt1enb1a8" path="res://Characters/Player/photo.gd" id="1_j8pcm"]
+[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="1_ney2t"]
 
 [node name="Photo" type="Sprite2D" unique_id=1658940409]
-position = Vector2(0, -1)
+position = Vector2(341, 515)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ney2t")
+offset = Vector2(-306, 60)
 script = ExtResource("1_j8pcm")
 
 [node name="DeleteTimer" type="Timer" parent="." unique_id=199021112]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
+
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
