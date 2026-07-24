@@ -74,3 +74,9 @@ func updatePhotos() -> void:
 	photoArray.pop_at(0)
 	for i in photoArray:
 		i.num = photoArray.find(i)
+
+
+func _on_camera_trigger_body_entered(body: Node3D) -> void:
+	var subViewport = body.get_parent().get_parent()
+	if(subViewport.shutter != null && subViewport.shutter.is_stopped() && subViewport.active):
+		subViewport.shutter.start()
