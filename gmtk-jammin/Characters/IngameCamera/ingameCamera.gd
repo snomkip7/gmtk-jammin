@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		$Shutter.start()
 	
 	timeDisplay.text = str(shutter.time_left)
-	timeDisplay.rotation = Vector3(timeDisplay.rotation.x, (Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) - Vector2(timeDisplay.global_position.x, -timeDisplay.global_position.z)).angle() + PI/2, timeDisplay.rotation.z)
+	timeDisplay.rotation = Vector3(timeDisplay.rotation.x, (-Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) + Vector2(timeDisplay.global_position.x, -timeDisplay.global_position.z)).angle() + PI/2, timeDisplay.rotation.z)
 
 func _on_shutter_timeout() -> void:
 	print("Timer ran out")
