@@ -51,8 +51,9 @@ alpha_cut = 2
 texture = ExtResource("2_hjumk")
 
 [node name="TimeDisplay" type="Label3D" parent="Camera" unique_id=243198383]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37459397, 0)
-font_size = 64
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64412475, 0)
+alpha_cut = 2
+font_size = 128
 outline_size = 20
 
 [node name="PlayerDetection" type="Area3D" parent="Camera" unique_id=1110258325]
