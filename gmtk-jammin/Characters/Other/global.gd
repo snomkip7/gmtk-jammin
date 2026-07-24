@@ -9,8 +9,8 @@ var musicFrantic
 var musicTime = 64.75
 var musicFader
 var frantic = false
-var loopNormal = false
-var loopFrantic = false
+var loopNormal = true
+var loopFrantic = true
 
 func _ready() -> void:
 	musicNormal = AudioStreamPlayer.new()
@@ -25,15 +25,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	musicTime -= delta
-	#print(ceili(musicTime))
-	if ceili(musicTime) == 64:
-		loopNormal = true
-		if musicNormal.playing == false:
-			musicNormal.play()
-	if ceili(musicTime) == 56:
-		loopFrantic = true
-		if musicFrantic.playing == false:
-			musicFrantic.play()
+	if ceili(musicTime) == 64 and musicNormal.playing == false:
+		musicNormal.play()
+	if ceili(musicTime) == 56 and musicFrantic.playing == false:
+		musicFrantic.play()
 	if frantic:
 		if ceili(musicTime) % 16 == 8:
 			panic()
@@ -43,10 +38,13 @@ func _physics_process(delta: float) -> void:
 	if ceili(musicTime) <= 0 and loopNormal == true:
 		musicNormal.play()
 		loopNormal = false
+		print("looped Normal")
 	if ceili(musicTime) <= -8 and loopFrantic == true:
 		musicFrantic.play()
 		loopFrantic = false
-		musicTime += 72
+		musicTime += 64
+		loopNormal = true
+		loopFrantic = true
 		
 	if !paused:
 		time -= delta
