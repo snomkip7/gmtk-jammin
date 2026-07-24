@@ -44,6 +44,7 @@ func _physics_process(_delta: float) -> void:
 		
 	if Input.is_action_just_pressed("dash") && !dashing && is_on_floor():
 		print("ZOOMY TIME")
+		animationPlayer.play("playerAnims/dash")
 		moveVelocity = Vector3(dashVelocity.x * direction.x, dashVelocity.y, dashVelocity.x * direction.z)
 		$DashCooldown.start()
 		dashing = true
@@ -62,6 +63,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func dashEnd() -> void:
+	animationPlayer.play("playerAnims/stand")
 	dashing = false
 
 func createImage(img: Image) -> void:
