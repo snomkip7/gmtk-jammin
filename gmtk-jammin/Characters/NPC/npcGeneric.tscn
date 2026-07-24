@@ -100,10 +100,6 @@ _data = {
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_xt5kw")
-aggression = null
-reactionTime = null
-personalSpaceSize = null
-pushRadius = null
 
 [node name="NPCSprite" type="Sprite3D" parent="." unique_id=2021586121]
 flip_h = true
@@ -128,6 +124,7 @@ collision_mask = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=243421698]
 libraries/ = SubResource("AnimationLibrary_tj0mn")
 libraries/npcAnims = SubResource("AnimationLibrary_qw4k1")
+autoplay = &"npcAnims/standNorm"
 
 [connection signal="timeout" from="AngerTimer" to="." method="angerCheck"]
 [connection signal="timeout" from="ActionTimer" to="." method="actionEnd"]
