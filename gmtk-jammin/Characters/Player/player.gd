@@ -12,7 +12,8 @@ var knockbackVelocity: Vector3 = Vector3.ZERO
 var knockbackDeceleration = 7
 var photoArray: Array[Sprite2D] = []
 @onready var camera: Camera3D = $Camera
-@onready var sprite: AnimatedSprite3D = $PlayerSprite
+@onready var sprite: Sprite3D = $PlayerSprite
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var timer: RichTextLabel = $Camera/PhotoLayer/Timer
 @onready var photoLayer = $Camera/PhotoLayer
 
@@ -36,11 +37,14 @@ func _physics_process(_delta: float) -> void:
 		# movement button is pressed
 		direction = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized()
 		moveVelocity = moveVelocity.move_toward(direction * speed, acceleration)
+		animationPlayer.play("playerAnims/run")
 	else:
+		animationPlayer.play("playerAnims/stand")
 		moveVelocity = moveVelocity.move_toward(Vector3.ZERO, acceleration)
 		
 	if Input.is_action_just_pressed("dash") && !dashing && is_on_floor():
 		print("ZOOMY TIME")
+		animationPlayer.play("playerAnims/dash")
 		moveVelocity = Vector3(dashVelocity.x * direction.x, dashVelocity.y, dashVelocity.x * direction.z)
 		$DashCooldown.start()
 		dashing = true
@@ -59,6 +63,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func dashEnd() -> void:
+	animationPlayer.play("playerAnims/stand")
 	dashing = false
 
 func createImage(img: Image) -> void:
@@ -74,3 +79,9 @@ func updatePhotos() -> void:
 	photoArray.pop_at(0)
 	for i in photoArray:
 		i.num = photoArray.find(i)
+
+
+func _on_camera_trigger_body_entered(body: Node3D) -> void:
+	var subViewport = body.get_parent().get_parent()
+	if(subViewport.shutter != null && subViewport.shutter.is_stopped() && subViewport.active):
+		subViewport.shutter.start()

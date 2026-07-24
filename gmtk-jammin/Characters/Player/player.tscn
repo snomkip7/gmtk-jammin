@@ -1,37 +1,221 @@
 [gd_scene format=3 uid="uid://cnyn1faxtwlqv"]
 
 [ext_resource type="Script" uid="uid://5ergdx73ud73" path="res://Characters/Player/player.gd" id="1_j341n"]
-[ext_resource type="Texture2D" uid="uid://bsklgsx0n35kk" path="res://Assets/Art/ProtoGuy.png" id="2_bqsbk"]
-[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="2_cue0d"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_t3xld"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_bqsbk")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 0.0
-}]
+[ext_resource type="Texture2D" uid="uid://cvndpxaoefyy8" path="res://Assets/Art/Stand_Back/0001.png" id="2_j341n"]
+[ext_resource type="Texture2D" uid="uid://cmnnauajpts8r" path="res://Assets/Art/Dash/0001.png" id="3_b6jp0"]
+[ext_resource type="Texture2D" uid="uid://k48u1s6skgtt" path="res://Assets/Art/Run_Back/0001.png" id="3_r5ew0"]
+[ext_resource type="Texture2D" uid="uid://cxwg8nxf4jx1k" path="res://Assets/Art/Pose_Lay/0001.png" id="3_va6lm"]
+[ext_resource type="Texture2D" uid="uid://dtso2p20m0pe2" path="res://Assets/Art/Stand_Back/0002.png" id="3_xf5fp"]
+[ext_resource type="Texture2D" uid="uid://cckbw7ey3gvts" path="res://Assets/Art/Dash/0002.png" id="4_8k5s7"]
+[ext_resource type="Texture2D" uid="uid://bmfg7056s5yl6" path="res://Assets/Art/Stand_Back/0003.png" id="4_osktb"]
+[ext_resource type="Texture2D" uid="uid://c15ksmmtwrbym" path="res://Assets/Art/Pose_Smirk/0001.png" id="4_u2wkb"]
+[ext_resource type="Texture2D" uid="uid://fj4hyp04e7rn" path="res://Assets/Art/Run_Back/0002.png" id="4_yhol4"]
+[ext_resource type="Texture2D" uid="uid://bjltme7qlews4" path="res://Assets/Art/Dash/0003.png" id="5_5elsd"]
+[ext_resource type="Texture2D" uid="uid://bxnvwt0egv0g2" path="res://Assets/Art/Stand_Back/0004.png" id="5_7vev3"]
+[ext_resource type="Texture2D" uid="uid://caqfp4bfdne2n" path="res://Assets/Art/Run_Back/0003.png" id="5_va6lm"]
+[ext_resource type="Texture2D" uid="uid://cn2rjmmbsy2sq" path="res://Assets/Art/Dash/0004.png" id="6_blwrb"]
+[ext_resource type="Texture2D" uid="uid://cokwfr2lb3578" path="res://Assets/Art/Run_Back/0004.png" id="6_u2wkb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
-height = 2.8413086
+height = 7.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
+size = Vector3(26.94336, 1, 37.347656)
+
+[sub_resource type="Animation" id="Animation_klx3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_j341n")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r5ew0"]
+_data = {
+&"RESET": SubResource("Animation_klx3t")
+}
+
+[sub_resource type="Animation" id="Animation_hvtal"]
+resource_name = "dash"
+length = 0.6666750198684632
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_b6jp0"), ExtResource("4_8k5s7"), ExtResource("5_5elsd"), ExtResource("6_blwrb")]
+}
+
+[sub_resource type="Animation" id="Animation_j341n"]
+length = 0.08334166915044189
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_va6lm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_cue0d"]
+length = 0.08334166915044189
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_u2wkb")]
+}
+
+[sub_resource type="Animation" id="Animation_bqsbk"]
+length = 0.6666750198684632
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_r5ew0"), ExtResource("4_yhol4"), ExtResource("5_va6lm"), ExtResource("6_u2wkb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xf5fp"]
+length = 0.6666750198684632
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_j341n"), ExtResource("3_xf5fp"), ExtResource("4_osktb"), ExtResource("5_7vev3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_osktb"]
+_data = {
+&"dash": SubResource("Animation_hvtal"),
+&"poseLay": SubResource("Animation_j341n"),
+&"poseSmirk": SubResource("Animation_cue0d"),
+&"run": SubResource("Animation_bqsbk"),
+&"stand": SubResource("Animation_xf5fp")
+}
 
 [node name="Player" type="CharacterBody3D" unique_id=940730692]
 collision_layer = 2
 collision_mask = 29
 script = ExtResource("1_j341n")
 
-[node name="PlayerSprite" type="AnimatedSprite3D" parent="." unique_id=1809710141]
+[node name="PlayerSprite" type="Sprite3D" parent="." unique_id=559904878]
 alpha_cut = 2
-sprite_frames = SubResource("SpriteFrames_t3xld")
-
-[node name="PlayerSpriteOld" type="Sprite3D" parent="." unique_id=1041185233]
-transform = Transform3D(1, 0, 0, 0, 0.91929096, 0.3935786, 0, -0.3935786, 0.91929096, 0, 0, 0)
-visible = false
-alpha_cut = 2
-texture = ExtResource("2_cue0d")
+texture = ExtResource("2_j341n")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=534395896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0435791, 0)
@@ -58,34 +242,48 @@ horizontal_alignment = 1
 [node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
 one_shot = true
 
+[node name="CameraTrigger" type="Area3D" parent="." unique_id=1318030934]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Hitbox" type="CollisionShape3D" parent="CameraTrigger" unique_id=1806205512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.798462)
+shape = SubResource("BoxShape3D_uyxol")
+
 [node name="Raycasts" type="Node3D" parent="." unique_id=777837121]
 
 [node name="FaceTop" type="RayCast3D" parent="Raycasts" unique_id=1729478690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4061648, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.298983, 0)
 collision_mask = 13
 
 [node name="FaceBot" type="RayCast3D" parent="Raycasts" unique_id=1473468515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57487655, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3985744, 0)
 collision_mask = 13
 
 [node name="FaceLeft" type="RayCast3D" parent="Raycasts" unique_id=1509882910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31038275, 0.97475517, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8716506, 2.1589966, 0)
 collision_mask = 13
 
 [node name="FaceRight" type="RayCast3D" parent="Raycasts" unique_id=295350059]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38697988, 0.9791286, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8429078, 2.1031346, 0)
 collision_mask = 13
 
 [node name="BodyRight" type="RayCast3D" parent="Raycasts" unique_id=1883655586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56160104, -0.3703456, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4584898, -1.1683165, 0)
 collision_mask = 13
 
 [node name="BodyLeft" type="RayCast3D" parent="Raycasts" unique_id=816816709]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5073106, -0.41575503, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4785595, -1.16271, 0)
 collision_mask = 13
 
 [node name="BodyBot" type="RayCast3D" parent="Raycasts" unique_id=1958684240]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551508, -1.2959309, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551508, -3.3000097, 0)
 collision_mask = 13
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1520079709]
+libraries/ = SubResource("AnimationLibrary_r5ew0")
+libraries/playerAnims = SubResource("AnimationLibrary_osktb")
+autoplay = &"playerAnims/stand"
+
 [connection signal="timeout" from="DashCooldown" to="." method="dashEnd"]
+[connection signal="body_entered" from="CameraTrigger" to="." method="_on_camera_trigger_body_entered"]

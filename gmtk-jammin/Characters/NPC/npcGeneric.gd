@@ -15,9 +15,9 @@ var baseSpeed = 15
 var speed = 0
 var state = 1 # 1=default, 2 = acting, 3 = recovery
 @onready var startingPoint: Vector3 = global_position
+@onready var animationPlayer: Node = $AnimationPlayer
 
 func _ready() -> void:
-	$NPCSprite.modulate = Color("ff6f1d")
 	camera.NPCRays.append($CameraRay)
 
 func _physics_process(_delta: float) -> void:
@@ -84,18 +84,18 @@ func _physics_process(_delta: float) -> void:
 func trigger(severity: float = 1): # after a photo has been photobombed, severity = how much reaction (1-3)
 	print("acting with severity: ", severity)
 	if aggression == 0: #do nothing
-		pass 
+		animationPlayer.play("npcAnims/standShock") 
 	if aggression == 1: # gets annoyed
 		#play angry voice clip
-		$NPCSprite.modulate = Color("ff171d")
+		animationPlayer.play("npcAnims/standAngry")
 	if aggression == 2: # pushes you away
 		# angry voice
-		$NPCSprite.modulate = Color("bc001d")
+		animationPlayer.play("npcAnims/standAngry")
 		if (global.player.global_position-global_position).length() <= pushRadius:
 			global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
 			global.time -= 5
 	if aggression == 3: #chases after you
-		$NPCSprite.modulate = Color("bc001d")
+		animationPlayer.play("npcAnims/standAngry")
 		if (global.player.global_position-global_position).length() <= pushRadius:
 			global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
 		if $ActionTimer.is_stopped() && state == 1:
