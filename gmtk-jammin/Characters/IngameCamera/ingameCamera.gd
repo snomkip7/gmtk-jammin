@@ -2,10 +2,14 @@ extends SubViewport
 
 @onready var shutter: Timer = $Shutter
 @onready var timeDisplay: Label3D = $Camera/TimeDisplay
+@onready var point: Node3D = $Camera/Point
+
+var NPCRays: Array[RayCast3D] = []
 
 var faceScore = 50
 var bodyScore = 25
 var dashScore = 70
+var npcScore = 80
 
 func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_released("interact")):
@@ -51,16 +55,15 @@ func colorEqual(c1: Color, c2: Color):
 		return false
 		
 func addToScore():
-	
 	if global.player.dashing && !global.player.is_on_floor():
 		global.score += dashScore
 		print("Dashing in the photo! +", dashScore, "!")
 	
 	# checking if the face is the the picture
-	global.player.rft.target_position = timeDisplay.global_position-global.player.rft.global_position
-	global.player.rfb.target_position = timeDisplay.global_position-global.player.rfb.global_position
-	global.player.rfl.target_position = timeDisplay.global_position-global.player.rfl.global_position
-	global.player.rfr.target_position = timeDisplay.global_position-global.player.rfr.global_position
+	global.player.rft.target_position = point.global_position-global.player.rft.global_position
+	global.player.rfb.target_position = point.global_position-global.player.rfb.global_position
+	global.player.rfl.target_position = point.global_position-global.player.rfl.global_position
+	global.player.rfr.target_position = point.global_position-global.player.rfr.global_position
 	
 	global.player.rft.force_raycast_update()
 	global.player.rfb.force_raycast_update()
@@ -72,9 +75,9 @@ func addToScore():
 		print("Face in photo! +", faceScore, "!")
 		
 		#checking if body is in the photo
-		global.player.rbl.target_position = timeDisplay.global_position-global.player.rbl.global_position
-		global.player.rbr.target_position = timeDisplay.global_position-global.player.rbr.global_position
-		global.player.rbb.target_position = timeDisplay.global_position-global.player.rbb.global_position
+		global.player.rbl.target_position = point.global_position-global.player.rbl.global_position
+		global.player.rbr.target_position = point.global_position-global.player.rbr.global_position
+		global.player.rbb.target_position = point.global_position-global.player.rbb.global_position
 	
 		if !(global.player.rbb.is_colliding() && global.player.rbl.is_colliding() && global.player.rbr.is_colliding()):
 			global.score += bodyScore
@@ -84,5 +87,11 @@ func addToScore():
 			
 	else:
 		print("no face in photo :(")
+	
+	for i in NPCRays:
+		i.force_raycast_update()
+		if i.is_colliding():
+			global.score += npcScore
+			print("In the way! +", npcScore, "!")
 	
 	print("Total Score: ", global.score)

@@ -16,13 +16,13 @@ var photoArray: Array[Sprite2D] = []
 @onready var timer: RichTextLabel = $Camera/PhotoLayer/Timer
 @onready var photoLayer = $Camera/PhotoLayer
 
-@onready var rft: RayCast3D = $PlayerSprite/FaceTop
-@onready var rfb: RayCast3D = $PlayerSprite/FaceBot
-@onready var rfl: RayCast3D = $PlayerSprite/FaceLeft
-@onready var rfr: RayCast3D = $PlayerSprite/FaceRight
-@onready var rbl: RayCast3D = $PlayerSprite/FaceTop
-@onready var rbr: RayCast3D = $PlayerSprite/FaceTop
-@onready var rbb: RayCast3D = $PlayerSprite/FaceTop
+@onready var rft: RayCast3D = $Raycasts/FaceTop
+@onready var rfb: RayCast3D = $Raycasts/FaceBot
+@onready var rfl: RayCast3D = $Raycasts/FaceLeft
+@onready var rfr: RayCast3D = $Raycasts/FaceRight
+@onready var rbl: RayCast3D = $Raycasts/FaceTop
+@onready var rbr: RayCast3D = $Raycasts/FaceTop
+@onready var rbb: RayCast3D = $Raycasts/FaceTop
 
 
 const PHOTO = preload("res://Characters/Player/photo.tscn")

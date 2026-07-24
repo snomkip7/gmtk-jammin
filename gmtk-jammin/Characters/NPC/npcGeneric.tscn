@@ -39,5 +39,9 @@ one_shot = true
 [node name="ActionTimer" type="Timer" parent="." unique_id=862910100]
 one_shot = true
 
+[node name="CameraRay" type="RayCast3D" parent="." unique_id=1114152054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8660784, 0)
+collision_mask = 2
+
 [connection signal="timeout" from="AngerTimer" to="." method="angerCheck"]
 [connection signal="timeout" from="ActionTimer" to="." method="actionEnd"]

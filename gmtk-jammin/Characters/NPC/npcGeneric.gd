@@ -4,10 +4,12 @@ extends CharacterBody3D
 # 0 for does nothing, 1 for gets annoyed, 2 for pushing you away, 3 for smacking you, 4 for chasing you
 var pushForce = 70 # multiplied by severity
 var tooClose = false # if you enter the npc's personal space
+var inTheWay = false # if you are inbetween the camera and the npc (raycast colliding)
 @export var reactionTime = .5 # how fast the npc gets annoyed if you're too close
 var cameraStage = 1 # 1 for before photo, 2 for counting down, 3 for after photo
 @export var camera: SubViewport # camera taking this NPC's photo
 @export var personalSpaceSize: float = 2.5
+@export var pushRadius: float = 4 # how far you can be and they push you
 var angryPersonalSpace = 4
 var baseSpeed = 15
 var speed = 0
@@ -16,10 +18,22 @@ var state = 1 # 1=default, 2 = acting, 3 = recovery
 
 func _ready() -> void:
 	$NPCSprite.modulate = Color("ff6f1d")
+	camera.NPCRays.append($CameraRay)
 
 func _physics_process(_delta: float) -> void:
 	# rotation
-	rotation = Vector3(rotation.x, (Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) - Vector2(global_position.x, -global_position.z)).angle() + PI/2, rotation.z)
+	$NPCSprite.rotation = Vector3(rotation.x, (Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) - Vector2(global_position.x, -global_position.z)).angle() + PI/2, rotation.z)
+	
+	$CameraRay.target_position = camera.point.global_position-$CameraRay.global_position
+	$CameraRay.force_raycast_update()
+	
+	if $CameraRay.is_colliding():
+		inTheWay = true
+		if $AngerTimer.is_stopped():
+			$AngerTimer.start(reactionTime)
+			print("in the way!")
+	else:
+		inTheWay = false
 	
 	# camera stages
 	if !camera.shutter.is_stopped() && camera.shutter.time_left < 3 && cameraStage==1:
@@ -77,20 +91,22 @@ func trigger(severity: float = 1): # after a photo has been photobombed, severit
 	if aggression == 2: # pushes you away
 		# angry voice
 		$NPCSprite.modulate = Color("bc001d")
-		global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
-		global.time -= 5
+		if (global.player.global_position-global_position).length() <= pushRadius:
+			global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
+			global.time -= 5
 	if aggression == 3: #chases after you
 		$NPCSprite.modulate = Color("bc001d")
-		global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
+		if (global.player.global_position-global_position).length() <= pushRadius:
+			global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
 		if $ActionTimer.is_stopped() && state == 1:
 			$ActionTimer.start(severity/2)
 			speed = baseSpeed * (severity/2+1)
 			state = 2
 
-func angerCheck() -> void: # checck if player is still too close
-	if tooClose && (cameraStage == 2 || cameraStage == 3):
+func angerCheck() -> void: # check if player is still too close
+	if (tooClose || inTheWay) && (cameraStage == 2 || cameraStage == 3):
 		trigger(cameraStage)
-	elif tooClose:
+	elif (tooClose || inTheWay):
 		trigger(1)
 	else:
 		print("nvm, ur good")

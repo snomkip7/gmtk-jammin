@@ -73,6 +73,8 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61061823, 0)
 shape = SubResource("CapsuleShape3D_t3xld")
 
+[node name="Point" type="Node3D" parent="Camera" unique_id=901106818]
+
 [node name="Shutter" type="Timer" parent="." unique_id=1336454911]
 wait_time = 3.0
 one_shot = true
