@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c27kub3sp7vwa"]
+
+[ext_resource type="PackedScene" uid="uid://bmhutkdf5m8eo" path="res://Assets/Art/gridmap.blend" id="1_swhkl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tqesp"]
+size = Vector3(2, 2, 2)
+
+[node name="gridmap" unique_id=710954950 instance=ExtResource("1_swhkl")]
+
+[node name="Collision" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(985549773) index="0" unique_id=1761109450]
+
+[node name="Hitbox" type="CollisionShape3D" parent="Cube/Collision" index="0" unique_id=1362476095]
+shape = SubResource("BoxShape3D_uyxol")
+
+[node name="Collision" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(1456873968) index="0" unique_id=1214007739]
+
+[node name="Hitbox" type="CollisionShape3D" parent="Cube_001/Collision" index="0" unique_id=1707980195]
+shape = SubResource("BoxShape3D_tqesp")
