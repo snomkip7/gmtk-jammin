@@ -29,7 +29,7 @@ width = 2000
 height = 2000
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
-size = Vector3(75.413086, 9.083008, 69.643555)
+size = Vector3(65.04907, 9.083008, 69.643555)
 
 [sub_resource type="Animation" id="Animation_klx3t"]
 length = 0.001
