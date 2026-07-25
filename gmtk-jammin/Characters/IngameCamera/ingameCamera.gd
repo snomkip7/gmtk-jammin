@@ -3,6 +3,7 @@ extends SubViewport
 @onready var shutter: Timer = $Shutter
 @onready var timeDisplay: Label3D = $Camera/TimeDisplay
 @onready var point: Node3D = $Camera/Point
+@onready var animationPlayer = $AnimationPlayer
 
 var NPCRays: Array[RayCast3D] = []
 
@@ -15,9 +16,11 @@ var active: bool = true
 func _physics_process(delta: float) -> void:
 	
 	if(active):
-		timeDisplay.text = str(shutter.time_left)
-		timeDisplay.rotation = Vector3(timeDisplay.rotation.x, (-Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) + Vector2(timeDisplay.global_position.x, -timeDisplay.global_position.z)).angle() + PI/2, timeDisplay.rotation.z)
+		$Camera/Countdown.rotation = Vector3($Camera/Countdown.rotation.x, (-Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) + Vector2($Camera/Countdown.global_position.x, -$Camera/Countdown.global_position.z)).angle() + PI/2, $Camera/Countdown.rotation.z)
 		if !shutter.is_stopped() && shutter.time_left < .02:
+			if(global.player.flashBuffer.is_stopped()):
+				global.player.flash()
+			$Camera/Sprites.visible = false
 			global.player.doRotate = false
 			global.player.get_node("PlayerSprite").rotation = Vector3(global.player.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(global.player.global_position.x, -global.player.global_position.z)).angle() + PI/2, global.player.rotation.z)
 			if global.player.dashing:
@@ -28,6 +31,8 @@ func _physics_process(delta: float) -> void:
 				var e: CharacterBody3D = i.get_parent()
 				e.doRotate = false
 				e.get_node("NPCSprite").rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
+	else:
+		$Camera/Sprites.visible = true 
 
 
 func _on_shutter_timeout() -> void:
@@ -69,10 +74,8 @@ func _on_shutter_timeout() -> void:
 		global.score += score
 		if score > 0:
 			addToScore()
+			global.player.createImage(img)
 		
-		global.player.createImage(img)
-		
-		timeDisplay.visible = false
 		active = false
 		global.player.doRotate = true
 		for i in NPCRays:
