@@ -12,12 +12,13 @@ var bodyScore = 25
 var dashScore = 70
 var npcScore = 80
 var active: bool = true
+var timeBonus = 10 # seconds added when being in photo
 
 func _physics_process(delta: float) -> void:
 	
 	if(active):
 		$Camera/Countdown.rotation = Vector3($Camera/Countdown.rotation.x, (-Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) + Vector2($Camera/Countdown.global_position.x, -$Camera/Countdown.global_position.z)).angle() + PI/2, $Camera/Countdown.rotation.z)
-		if !shutter.is_stopped() && shutter.time_left < .02:
+		if !shutter.is_stopped() && shutter.time_left < .03:
 			if(global.player.flashBuffer.is_stopped()):
 				global.player.flash()
 			$Camera/Sprites.visible = false
@@ -89,6 +90,8 @@ func colorEqual(c1: Color, c2: Color):
 		return false
 		
 func addToScore():
+	global.time += timeBonus
+	
 	if global.player.dashing:
 		global.score += dashScore
 		print("Dashing in the photo! +", dashScore, "!")
