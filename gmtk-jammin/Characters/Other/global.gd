@@ -3,7 +3,7 @@ extends Node
 var player: CharacterBody3D
 var score = 0
 var time = 70
-var paused = false
+var paused = true
 var musicNormal
 var musicFrantic
 var musicTime = 64.75
