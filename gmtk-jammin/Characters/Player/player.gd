@@ -78,6 +78,11 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("restart"):
 		call_deferred("restart")
+		
+	if !dashing:
+		if velocity.x != 0 or velocity.z != 0:
+			if $FootSteps.playing == false:
+				$FootSteps.play()
 
 
 func dashEnd() -> void:
