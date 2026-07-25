@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://8o2n8wqvavew"]
+
+[ext_resource type="Texture2D" uid="uid://k5u78argtukp" path="res://Assets/Art/picnicBlanket.png" id="1_x5p80"]
+
+[node name="Picnic" type="Sprite3D" unique_id=1771634666]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+texture = ExtResource("1_x5p80")

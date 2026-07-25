@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cu6oyjx53iyxl" path="res://Characters/NPC/npcGeneric.tscn" id="5_owrup"]
 [ext_resource type="PackedScene" uid="uid://drv8gbiosk3pm" path="res://Characters/Tree/tree.tscn" id="6_houwy"]
 [ext_resource type="PackedScene" uid="uid://cvvvb4tvohsa8" path="res://Levels/gridmap.tscn" id="6_ovcht"]
+[ext_resource type="PackedScene" uid="uid://l3ndlt8isxix" path="res://Characters/Rock/rock.tscn" id="7_ovcht"]
+[ext_resource type="PackedScene" uid="uid://8o2n8wqvavew" path="res://Characters/Picnic/picnic.tscn" id="8_pdwhj"]
 
 [sub_resource type="Environment" id="Environment_uyxol"]
 ambient_light_source = 2
@@ -267,6 +269,73 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.179523, 0, -75.85799)
 
 [node name="Tree26" parent="Trees" unique_id=2019501511 instance=ExtResource("6_houwy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.713387, 13.575715, -89.93377)
+
+[node name="Rocks" type="Node3D" parent="." unique_id=1620250022]
+
+[node name="Rock" parent="Rocks" unique_id=1607237479 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.239517, -0.8582556, 58.90309)
+
+[node name="Rock2" parent="Rocks" unique_id=233883836 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.463947, -0.8582556, 24.415173)
+
+[node name="Rock3" parent="Rocks" unique_id=1913639136 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.342136, -0.8582556, 22.593483)
+
+[node name="Rock4" parent="Rocks" unique_id=1096912636 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.233982, -0.8582556, 51.754242)
+
+[node name="Rock5" parent="Rocks" unique_id=431327003 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.796041, -0.8582556, 75.55194)
+
+[node name="Rock6" parent="Rocks" unique_id=185751580 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.454857, -0.8582556, 85.223564)
+
+[node name="Rock7" parent="Rocks" unique_id=1023880624 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.013767, -0.8582556, 85.04985)
+
+[node name="Rock8" parent="Rocks" unique_id=1012909383 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.41771, -0.8582556, -0.30352783)
+
+[node name="Rock9" parent="Rocks" unique_id=188753607 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.110924, -0.8582556, -43.20694)
+
+[node name="Rock10" parent="Rocks" unique_id=1167123607 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1793785, -0.8582556, -40.84268)
+
+[node name="Rock11" parent="Rocks" unique_id=464522646 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.55854, -0.8582556, -85.0412)
+
+[node name="Rock12" parent="Rocks" unique_id=1232895157 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.599255, -0.8582556, -93.83803)
+
+[node name="Rock13" parent="Rocks" unique_id=492754098 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.22777, -0.8582556, -58.302826)
+
+[node name="Rock14" parent="Rocks" unique_id=933184261 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.8451, -0.8582556, -108.36604)
+
+[node name="Rock15" parent="Rocks" unique_id=1096679224 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.445183, -0.8582556, 40.166412)
+
+[node name="Rock16" parent="Rocks" unique_id=2105377331 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.880367, -0.8582556, 56.53341)
+
+[node name="Rock17" parent="Rocks" unique_id=1442943879 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9280434, -0.8582556, 86.927284)
+
+[node name="Rock18" parent="Rocks" unique_id=31522568 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.07242, -0.8582556, 80.14231)
+
+[node name="Rock19" parent="Rocks" unique_id=507184726 instance=ExtResource("7_ovcht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.937794, -0.8582556, 116.86789)
+
+[node name="Decorations" type="Node3D" parent="." unique_id=887873981]
+
+[node name="Picnic" parent="Decorations" unique_id=1771634666 instance=ExtResource("8_pdwhj")]
+transform = Transform3D(0.86801815, -0.49653244, 2.1704123e-08, 0, -4.371139e-08, -1, 0.49653244, 0.86801815, -3.794228e-08, 29.086222, -0.17448807, 49.976295)
+
+[node name="Picnic2" parent="Decorations" unique_id=1607718717 instance=ExtResource("8_pdwhj")]
+transform = Transform3D(0.99997014, -0.007725477, 3.37689e-10, 0, -4.371139e-08, -1, 0.007725477, 0.99997014, -4.3710084e-08, -50.91234, -0.17449188, -90.63467)
 
 [node name="NPCGeneric5" parent="." unique_id=1927146108 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.967896, 3.7571354, 49.695663)
