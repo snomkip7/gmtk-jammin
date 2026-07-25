@@ -228,6 +228,36 @@ alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("2_j341n")
 
+[node name="Raycasts" type="Node3D" parent="PlayerSprite" unique_id=777837121]
+
+[node name="FaceTop" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=1729478690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.298983, 0)
+collision_mask = 13
+
+[node name="FaceBot" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=1473468515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3985744, 0)
+collision_mask = 13
+
+[node name="FaceLeft" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=1509882910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8716506, 2.1589966, 0)
+collision_mask = 13
+
+[node name="FaceRight" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=295350059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8429078, 2.1031346, 0)
+collision_mask = 13
+
+[node name="BodyRight" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=1883655586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4584898, -1.1683165, 0)
+collision_mask = 13
+
+[node name="BodyLeft" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=816816709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4785595, -1.16271, 0)
+collision_mask = 13
+
+[node name="BodyBot" type="RayCast3D" parent="PlayerSprite/Raycasts" unique_id=1958684240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551508, -3.3000097, 0)
+collision_mask = 13
+
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=534395896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0435791, 0)
 shape = SubResource("CapsuleShape3D_t3xld")
@@ -267,36 +297,6 @@ collision_mask = 16
 [node name="Hitbox" type="CollisionShape3D" parent="CameraTrigger" unique_id=1806205512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32.55188)
 shape = SubResource("BoxShape3D_uyxol")
-
-[node name="Raycasts" type="Node3D" parent="." unique_id=777837121]
-
-[node name="FaceTop" type="RayCast3D" parent="Raycasts" unique_id=1729478690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.298983, 0)
-collision_mask = 13
-
-[node name="FaceBot" type="RayCast3D" parent="Raycasts" unique_id=1473468515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3985744, 0)
-collision_mask = 13
-
-[node name="FaceLeft" type="RayCast3D" parent="Raycasts" unique_id=1509882910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8716506, 2.1589966, 0)
-collision_mask = 13
-
-[node name="FaceRight" type="RayCast3D" parent="Raycasts" unique_id=295350059]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8429078, 2.1031346, 0)
-collision_mask = 13
-
-[node name="BodyRight" type="RayCast3D" parent="Raycasts" unique_id=1883655586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4584898, -1.1683165, 0)
-collision_mask = 13
-
-[node name="BodyLeft" type="RayCast3D" parent="Raycasts" unique_id=816816709]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4785595, -1.16271, 0)
-collision_mask = 13
-
-[node name="BodyBot" type="RayCast3D" parent="Raycasts" unique_id=1958684240]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551508, -3.3000097, 0)
-collision_mask = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1520079709]
 libraries/ = SubResource("AnimationLibrary_r5ew0")
