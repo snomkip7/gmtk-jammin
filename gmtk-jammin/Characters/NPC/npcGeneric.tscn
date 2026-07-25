@@ -104,6 +104,7 @@ script = ExtResource("1_xt5kw")
 [node name="NPCSprite" type="Sprite3D" parent="." unique_id=2021586121]
 flip_h = true
 alpha_cut = 2
+texture_filter = 0
 texture = ExtResource("2_xt5kw")
 
 [node name="NPCCollision" type="CollisionShape3D" parent="." unique_id=475502125]

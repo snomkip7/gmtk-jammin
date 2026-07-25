@@ -215,6 +215,7 @@ script = ExtResource("1_j341n")
 
 [node name="PlayerSprite" type="Sprite3D" parent="." unique_id=559904878]
 alpha_cut = 2
+texture_filter = 0
 texture = ExtResource("2_j341n")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=534395896]
