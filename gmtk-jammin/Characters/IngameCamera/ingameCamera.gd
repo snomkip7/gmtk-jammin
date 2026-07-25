@@ -1,7 +1,7 @@
 extends SubViewport
 
 @onready var shutter: Timer = $Shutter
-@onready var timeDisplay: Label3D = $Camera/TimeDisplay
+@onready var timeDisplay: Sprite3D = $Camera/Countdown
 @onready var point: Node3D = $Camera/Point
 @onready var animationPlayer = $AnimationPlayer
 

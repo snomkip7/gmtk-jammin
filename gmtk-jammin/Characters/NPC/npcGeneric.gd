@@ -5,12 +5,12 @@ extends CharacterBody3D
 var pushForce = 70 # multiplied by severity
 var tooClose = false # if you enter the npc's personal space
 var inTheWay = false # if you are inbetween the camera and the npc (raycast colliding)
-@export var reactionTime = .5 # how fast the npc gets annoyed if you're too close
+@export var reactionTime = .3 # how fast the npc gets annoyed if you're too close
 var cameraStage = 1 # 1 for before photo, 2 for counting down, 3 for after photo
 @export var camera: SubViewport # camera taking this NPC's photo
-@export var personalSpaceSize: float = 2.5
-@export var pushRadius: float = 4 # how far you can be and they push you
-var angryPersonalSpace = 4
+@export var personalSpaceSize: float = 5
+@export var pushRadius: float = 5 # how far you can be and they push you
+var angryPersonalSpace = 5
 var baseSpeed = 15
 var speed = 0
 var state = 1 # 1=default, 2 = acting, 3 = recovery
