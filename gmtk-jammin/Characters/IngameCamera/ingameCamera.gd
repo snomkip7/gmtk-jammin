@@ -4,6 +4,7 @@ extends SubViewport
 @onready var timeDisplay: Sprite3D = $Camera/Countdown
 @onready var point: Node3D = $Camera/Point
 @onready var animationPlayer = $AnimationPlayer
+@onready var cameraSound = $CameraSound
 
 var NPCRays: Array[RayCast3D] = []
 
@@ -13,6 +14,7 @@ var dashScore = 70
 var npcScore = 80
 var active: bool = true
 var timeBonus = 10 # seconds added when being in photo
+
 
 func _physics_process(delta: float) -> void:
 	
