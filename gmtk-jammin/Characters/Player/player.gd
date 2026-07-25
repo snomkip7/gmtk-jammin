@@ -37,6 +37,8 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("dash") and !dashing:
+		$Dash.play()
 	if is_on_floor() && !dashing && (Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0): 
 		# movement button is pressed
 		direction = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized()
