@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 				player.timer.text = str(ceili(time)/60)+":"+str(ceili(time)%60)
 		if time <= 0:
 			endGame()
-		if time <= 30:
+		if time <= 35:
 			frantic = true
 		else:
 			frantic = false
