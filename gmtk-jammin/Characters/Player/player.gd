@@ -21,13 +21,13 @@ var flashing = false
 @onready var cameraFlash = $Camera/PhotoLayer/CameraFlash
 @onready var flashBuffer = $FlashBuffer
 
-@onready var rft: RayCast3D = $Raycasts/FaceTop
-@onready var rfb: RayCast3D = $Raycasts/FaceBot
-@onready var rfl: RayCast3D = $Raycasts/FaceLeft
-@onready var rfr: RayCast3D = $Raycasts/FaceRight
-@onready var rbl: RayCast3D = $Raycasts/FaceTop
-@onready var rbr: RayCast3D = $Raycasts/FaceTop
-@onready var rbb: RayCast3D = $Raycasts/FaceTop
+@onready var rft: RayCast3D = $PlayerSprite/Raycasts/FaceTop
+@onready var rfb: RayCast3D = $PlayerSprite/Raycasts/FaceBot
+@onready var rfl: RayCast3D = $PlayerSprite/Raycasts/FaceLeft
+@onready var rfr: RayCast3D = $PlayerSprite/Raycasts/FaceRight
+@onready var rbl: RayCast3D = $PlayerSprite/Raycasts/FaceTop
+@onready var rbr: RayCast3D = $PlayerSprite/Raycasts/FaceTop
+@onready var rbb: RayCast3D = $PlayerSprite/Raycasts/FaceTop
 
 
 const PHOTO = preload("res://Characters/Player/photo.tscn")
@@ -56,6 +56,13 @@ func _physics_process(_delta: float) -> void:
 		moveVelocity = Vector3(dashVelocity.x * direction.x, dashVelocity.y, dashVelocity.x * direction.z)
 		$DashCooldown.start()
 		dashing = true
+		rft.position = Vector3(-2.292, 1.314, 0)
+		rfb.position = Vector3(-1.64, -.41, 0)
+		rfl.position = Vector3(-1.31, .449, 0)
+		rfr.position = Vector3(-2.54, .2, 0)
+		rbr.position = Vector3(-.63, -1.62, 0)
+		rbl.position = Vector3(-.28, .344, 0)
+		rfb.position = Vector3(3.318, -1.08, 0)
 		
 	if !is_on_floor():
 		moveVelocity.y += gravity
@@ -88,6 +95,13 @@ func _physics_process(_delta: float) -> void:
 func dashEnd() -> void:
 	animationPlayer.play("playerAnims/stand")
 	dashing = false
+	rft.position = Vector3(0, 3.299, 0)
+	rfb.position = Vector3(0, 1.399, 0)
+	rfl.position = Vector3(.872, 2.159, 0)
+	rfr.position = Vector3(-.84, 2.103, 0)
+	rbr.position = Vector3(-1.45, -1.16, 0)
+	rbl.position = Vector3(1.479, -1.16, 0)
+	rbb.position = Vector3(-.02, -3.3, 0)
 
 func createImage(img: Image) -> void:
 	var photo = PHOTO.instantiate()
