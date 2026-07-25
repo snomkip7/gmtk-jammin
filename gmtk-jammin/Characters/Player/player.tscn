@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cn2rjmmbsy2sq" path="res://Assets/Art/Dash/0004.png" id="6_blwrb"]
 [ext_resource type="Texture2D" uid="uid://cokwfr2lb3578" path="res://Assets/Art/Run_Back/0004.png" id="6_u2wkb"]
 [ext_resource type="AudioStream" uid="uid://r30b1cpl3e5d" path="res://Assets/Music/footsteps.mp3" id="16_8k5s7"]
+[ext_resource type="AudioStream" uid="uid://pcinekwcwxqa" path="res://Assets/Music/dash.mp3" id="17_5elsd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 7.5
@@ -310,6 +311,9 @@ one_shot = true
 [node name="FootSteps" type="AudioStreamPlayer" parent="." unique_id=869457695]
 stream = ExtResource("16_8k5s7")
 parameters/looping = false
+
+[node name="Dash" type="AudioStreamPlayer" parent="." unique_id=809263531]
+stream = ExtResource("17_5elsd")
 
 [connection signal="timeout" from="DashCooldown" to="." method="dashEnd"]
 [connection signal="body_entered" from="CameraTrigger" to="." method="_on_camera_trigger_body_entered"]
