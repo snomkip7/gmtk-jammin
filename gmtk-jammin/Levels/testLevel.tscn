@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dn48wp7o25hfv"]
 
+[ext_resource type="PackedScene" uid="uid://6v78x2crv5hh" path="res://Characters/Sky/environment.tscn" id="1_rbilt"]
 [ext_resource type="PackedScene" uid="uid://cnyn1faxtwlqv" path="res://Characters/Player/player.tscn" id="2_6ehle"]
 [ext_resource type="PackedScene" uid="uid://ci2i2wgrao01r" path="res://Characters/Bush/bush.tscn" id="2_faoc1"]
 [ext_resource type="PackedScene" uid="uid://brv85e8v3ykjv" path="res://Characters/IngameCamera/ingameCamera.tscn" id="4_faoc1"]
@@ -14,6 +15,8 @@ ambient_light_source = 2
 ambient_light_color = Color(0.9515795, 0.95157963, 0.9515794, 1)
 
 [node name="TestLevel" type="Node3D" unique_id=1896238535]
+
+[node name="Environment" parent="." unique_id=561894283 instance=ExtResource("1_rbilt")]
 
 [node name="Gridmap" parent="." unique_id=443597621 instance=ExtResource("6_ovcht")]
 data = {
