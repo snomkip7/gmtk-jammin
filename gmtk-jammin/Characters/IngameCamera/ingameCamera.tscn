@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://doolpq8dtg4u3" path="res://Assets/Art/Countdown/two.png" id="4_iudio"]
 [ext_resource type="Texture2D" uid="uid://rbywktoahvo3" path="res://Assets/Art/Countdown/one.png" id="5_122r8"]
 [ext_resource type="Texture2D" uid="uid://dogf2gmi60o33" path="res://Assets/Art/Countdown/click.png" id="6_eehyx"]
+[ext_resource type="AudioStream" uid="uid://cd2b5blpmaj46" path="res://Assets/Music/camera countdown.mp3" id="7_iudio"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bywd0"]
 load_path = "res://.godot/imported/icon.svg-18c1c52c6ac344ff8cf82551d72cfecd.s3tc.ctex"
@@ -146,5 +147,9 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1626228675]
 libraries/ = SubResource("AnimationLibrary_nt2sd")
+
+[node name="CameraSound" type="AudioStreamPlayer3D" parent="." unique_id=1601397603]
+stream = ExtResource("7_iudio")
+volume_db = 2.243
 
 [connection signal="timeout" from="Shutter" to="." method="_on_shutter_timeout"]
