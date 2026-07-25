@@ -12,11 +12,14 @@ var knockbackVelocity: Vector3 = Vector3.ZERO
 var knockbackDeceleration = 7
 var photoArray: Array[Sprite2D] = []
 var doRotate = true # disables rotation
+var flashing = false
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var timer: RichTextLabel = $Camera/PhotoLayer/Timer
 @onready var photoLayer = $Camera/PhotoLayer
+@onready var cameraFlash = $Camera/PhotoLayer/CameraFlash
+@onready var flashBuffer = $FlashBuffer
 
 @onready var rft: RayCast3D = $Raycasts/FaceTop
 @onready var rfb: RayCast3D = $Raycasts/FaceBot
@@ -66,6 +69,15 @@ func _physics_process(_delta: float) -> void:
 	
 	if doRotate:
 		$PlayerSprite.rotation = $Camera.rotation
+	
+	if flashing && flashBuffer.time_left <= 0:
+		cameraFlash.modulate.a -= 0.1
+	
+	if(cameraFlash.modulate.a <= 0):
+		flashing = false
+	
+	if Input.is_action_just_pressed("restart"):
+		call_deferred("restart")
 
 
 func dashEnd() -> void:
@@ -91,3 +103,13 @@ func _on_camera_trigger_body_entered(body: Node3D) -> void:
 	var subViewport = body.get_parent().get_parent()
 	if(subViewport.shutter != null && subViewport.shutter.is_stopped() && subViewport.active):
 		subViewport.shutter.start()
+		subViewport.animationPlayer.play("countdown")
+
+func flash():
+	cameraFlash.modulate.a = 1
+	flashBuffer.start()
+	flashing = true
+	
+
+func restart():
+	get_tree().reload_current_scene()

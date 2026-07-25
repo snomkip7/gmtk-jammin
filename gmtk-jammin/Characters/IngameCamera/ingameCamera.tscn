@@ -2,18 +2,73 @@
 
 [ext_resource type="Script" uid="uid://dbb6fyt26h2ig" path="res://Characters/IngameCamera/ingameCamera.gd" id="1_n5pxx"]
 [ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="2_hjumk"]
+[ext_resource type="Texture2D" uid="uid://deaantst3xb3o" path="res://Assets/Art/Countdown/three.png" id="3_hsnwk"]
+[ext_resource type="Texture2D" uid="uid://doolpq8dtg4u3" path="res://Assets/Art/Countdown/two.png" id="4_iudio"]
+[ext_resource type="Texture2D" uid="uid://rbywktoahvo3" path="res://Assets/Art/Countdown/one.png" id="5_122r8"]
+[ext_resource type="Texture2D" uid="uid://dogf2gmi60o33" path="res://Assets/Art/Countdown/click.png" id="6_eehyx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bywd0"]
 load_path = "res://.godot/imported/icon.svg-18c1c52c6ac344ff8cf82551d72cfecd.s3tc.ctex"
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hjumk"]
-points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 5, 2.75, -5, 5, -2.75, -5, -5, 2.75, -5, -5, -2.75, -5)
+points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 20, 12, -16, 20, -2.75, -16, -20, 12, -16, -20, -2.75, -16)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bywd0"]
 points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 5, 2.75, -5, 5, -2.75, -5, -5, 2.75, -5, -5, -2.75, -5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 1.6420898
+
+[sub_resource type="Animation" id="Animation_m11j1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera/Countdown:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/Countdown")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ow2vj"]
+resource_name = "countdown"
+length = 2.3000000000000003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera/Countdown:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6667, 1.3667, 2, 2.1666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_hsnwk"), ExtResource("4_iudio"), ExtResource("5_122r8"), ExtResource("6_eehyx"), null]
+}
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/Countdown")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 1, 1, 1, 0.6667, 1, 0, 0, 0, 0.76666665, 1, 1, 1, 1, 1.3666667, 1, 0, 0, 0, 1.4333333, 1, 1, 1, 1, 2, 1, 0, 0, 0, 2.0666666, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2sd"]
+_data = {
+&"RESET": SubResource("Animation_m11j1"),
+&"countdown": SubResource("Animation_ow2vj")
+}
 
 [node name="SubViewport" type="SubViewport" unique_id=1128294062]
 size = Vector2i(640, 400)
@@ -23,41 +78,40 @@ script = ExtResource("1_n5pxx")
 [node name="Camera" type="Camera3D" parent="." unique_id=245154464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.397455, 0)
 
-[node name="Leg1" type="Sprite3D" parent="Camera" unique_id=828999595]
+[node name="Sprites" type="Node3D" parent="Camera" unique_id=1392320538]
+
+[node name="Leg1" type="Sprite3D" parent="Camera/Sprites" unique_id=828999595]
 transform = Transform3D(-4.222196e-09, -1.131334e-08, 1, -0.025881905, 0.9659258, 0, -0.09659258, -0.25881904, -4.371139e-08, 0, -0.7622275, 0.23384404)
 modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
 alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
-[node name="Leg2" type="Sprite3D" parent="Camera" unique_id=1965007074]
+[node name="Leg2" type="Sprite3D" parent="Camera/Sprites" unique_id=1965007074]
 transform = Transform3D(0.06830127, 0.18301268, -0.70710677, -0.025881905, 0.96592575, 0, 0.06830127, 0.18301268, 0.70710677, -0.16551733, -0.7622275, -0.17771193)
 modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
 alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
-[node name="Leg3" type="Sprite3D" parent="Camera" unique_id=1789625931]
+[node name="Leg3" type="Sprite3D" parent="Camera/Sprites" unique_id=1789625931]
 transform = Transform3D(-0.040821802, -0.10938167, -0.9063079, -0.025881907, 0.9659258, 0, 0.087542616, 0.23456971, -0.4226184, 0.12078285, -0.7622275, -0.2090258)
 modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
 alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
-[node name="Box" type="Sprite3D" parent="Camera" unique_id=984537651]
+[node name="Box" type="Sprite3D" parent="Camera/Sprites" unique_id=984537651]
 transform = Transform3D(-8.960835e-09, 0, 1, 0, 0.19, 0, -0.205, 0, -4.371139e-08, 0, 0, -0.14195299)
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
 alpha_cut = 2
 texture = ExtResource("2_hjumk")
 
-[node name="Box2" type="Sprite3D" parent="Camera" unique_id=751586275]
+[node name="Box2" type="Sprite3D" parent="Camera/Sprites" unique_id=751586275]
 transform = Transform3D(-4.808253e-09, 0, 1, 0, 0.32, 0, -0.11, 0, -4.371139e-08, 0, 0, 0.027282327)
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
 alpha_cut = 2
 texture = ExtResource("2_hjumk")
 
-[node name="TimeDisplay" type="Label3D" parent="Camera" unique_id=243198383]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64412475, 0)
-alpha_cut = 2
-font_size = 128
-outline_size = 20
+[node name="Countdown" type="Sprite3D" parent="Camera" unique_id=794738447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87677836, 0)
 
 [node name="PlayerDetection" type="Area3D" parent="Camera" unique_id=1110258325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
@@ -87,7 +141,10 @@ shape = SubResource("CapsuleShape3D_t3xld")
 [node name="Point" type="Node3D" parent="Camera" unique_id=901106818]
 
 [node name="Shutter" type="Timer" parent="." unique_id=1336454911]
-wait_time = 3.0
+wait_time = 2.1999999999999997
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1626228675]
+libraries/ = SubResource("AnimationLibrary_nt2sd")
 
 [connection signal="timeout" from="Shutter" to="." method="_on_shutter_timeout"]

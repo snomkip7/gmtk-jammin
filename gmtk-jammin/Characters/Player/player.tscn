@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cnyn1faxtwlqv"]
 
 [ext_resource type="Script" uid="uid://5ergdx73ud73" path="res://Characters/Player/player.gd" id="1_j341n"]
-[ext_resource type="Shader" uid="uid://ck4ndhhro8d8h" path="res://Characters/Player/player.gdshader" id="2_8k5s7"]
 [ext_resource type="Texture2D" uid="uid://cvndpxaoefyy8" path="res://Assets/Art/Stand_Back/0001.png" id="2_j341n"]
 [ext_resource type="Texture2D" uid="uid://cmnnauajpts8r" path="res://Assets/Art/Dash/0001.png" id="3_b6jp0"]
 [ext_resource type="Texture2D" uid="uid://k48u1s6skgtt" path="res://Assets/Art/Run_Back/0001.png" id="3_r5ew0"]
@@ -17,17 +16,20 @@
 [ext_resource type="Texture2D" uid="uid://cn2rjmmbsy2sq" path="res://Assets/Art/Dash/0004.png" id="6_blwrb"]
 [ext_resource type="Texture2D" uid="uid://cokwfr2lb3578" path="res://Assets/Art/Run_Back/0004.png" id="6_u2wkb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_um21n"]
-shader = ExtResource("2_8k5s7")
-shader_parameter/screen_mode = true
-shader_parameter/num_colors = 3
-shader_parameter/precision = 0.1
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 height = 7.5
 
+[sub_resource type="Gradient" id="Gradient_b6jp0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_os7yj"]
+gradient = SubResource("Gradient_b6jp0")
+width = 2000
+height = 2000
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
-size = Vector3(32.926758, 9.083008, 37.347656)
+size = Vector3(65.04907, 9.083008, 69.643555)
 
 [sub_resource type="Animation" id="Animation_klx3t"]
 length = 0.001
@@ -221,8 +223,8 @@ collision_mask = 29
 script = ExtResource("1_j341n")
 
 [node name="PlayerSprite" type="Sprite3D" parent="." unique_id=559904878]
-material_overlay = SubResource("ShaderMaterial_um21n")
 alpha_cut = 2
+texture_filter = 0
 texture = ExtResource("2_j341n")
 
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=534395896]
@@ -233,6 +235,13 @@ shape = SubResource("CapsuleShape3D_t3xld")
 transform = Transform3D(1, 0, 0, 0, 0.9009048, 0.4340168, 0, -0.4340168, 0.9009048, 0, 4.1320953, 4.987616)
 
 [node name="PhotoLayer" type="CanvasLayer" parent="Camera" unique_id=1991387337]
+
+[node name="CameraFlash" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=735564973]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+z_as_relative = false
+position = Vector2(576, 324)
+texture = SubResource("GradientTexture2D_os7yj")
 
 [node name="Timer" type="RichTextLabel" parent="Camera/PhotoLayer" unique_id=637810028]
 anchors_preset = 5
@@ -255,7 +264,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="Hitbox" type="CollisionShape3D" parent="CameraTrigger" unique_id=1806205512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.798462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.94641)
 shape = SubResource("BoxShape3D_uyxol")
 
 [node name="Raycasts" type="Node3D" parent="." unique_id=777837121]
@@ -292,6 +301,10 @@ collision_mask = 13
 libraries/ = SubResource("AnimationLibrary_r5ew0")
 libraries/playerAnims = SubResource("AnimationLibrary_osktb")
 autoplay = &"playerAnims/stand"
+
+[node name="FlashBuffer" type="Timer" parent="." unique_id=1176687296]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="timeout" from="DashCooldown" to="." method="dashEnd"]
 [connection signal="body_entered" from="CameraTrigger" to="." method="_on_camera_trigger_body_entered"]
