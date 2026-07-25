@@ -58,6 +58,6 @@ offset_left = 341.0
 offset_top = 541.0
 offset_right = 381.0
 offset_bottom = 564.0
-text = "Start"
+text = "Space to Start"
 
 [connection signal="button_down" from="StartButton" to="." method="startGame"]
