@@ -52,7 +52,7 @@ func _on_shutter_timeout() -> void:
 		for x: int in img.get_width()/2:
 			for y: int in img.get_height()/2:
 				#if img.get_pixel(x, y).is_equal_approx(Color("9E80BC")):
-				if colorEqual(img.get_pixel(x*2, y*2), Color("9E80BC")):
+				if  colorEqual(img.get_pixel(x*2, y*2), Color("3937A2")) || colorEqual(img.get_pixel(x*2, y*2), Color("9789CF")) || colorEqual(img.get_pixel(x*2, y*2), Color("6461C2")):
 					score += 1
 				#print(img.get_pixel(x*5, y*5))
 				#print(x*5, " ", y*5)
@@ -82,7 +82,7 @@ func colorEqual(c1: Color, c2: Color):
 		return false
 		
 func addToScore():
-	if global.player.dashing && !global.player.is_on_floor():
+	if global.player.dashing:
 		global.score += dashScore
 		print("Dashing in the photo! +", dashScore, "!")
 	

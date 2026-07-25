@@ -66,6 +66,9 @@ func _physics_process(_delta: float) -> void:
 	
 	if doRotate:
 		$PlayerSprite.rotation = $Camera.rotation
+		
+	if Input.is_action_just_pressed("restart"):
+		call_deferred("restart")
 
 
 func dashEnd() -> void:
@@ -91,3 +94,6 @@ func _on_camera_trigger_body_entered(body: Node3D) -> void:
 	var subViewport = body.get_parent().get_parent()
 	if(subViewport.shutter != null && subViewport.shutter.is_stopped() && subViewport.active):
 		subViewport.shutter.start()
+
+func restart():
+	get_tree().reload_current_scene()
