@@ -13,17 +13,22 @@ size = Vector3(2, 2, 2)
 
 [node name="gridmap" unique_id=710954950 instance=ExtResource("1_swhkl")]
 
-[node name="Collision" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1177801323) index="0" unique_id=1761109450]
+[node name="Collision" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1691609851) index="0" unique_id=1761109450]
 
 [node name="Hitbox" type="CollisionShape3D" parent="Cube/Collision" index="0" unique_id=1362476095]
 shape = SubResource("BoxShape3D_uyxol")
 
-[node name="Collision" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(97377217) index="0" unique_id=1214007739]
+[node name="Collision" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(1901574686) index="0" unique_id=1214007739]
 
 [node name="Hitbox" type="CollisionShape3D" parent="Cube_001/Collision" index="0" unique_id=1707980195]
 shape = SubResource("BoxShape3D_tqesp")
 
-[node name="Collision" type="StaticBody3D" parent="Cube_002" parent_id_path=PackedInt32Array(730047727) index="0" unique_id=801994037]
+[node name="Collision" type="StaticBody3D" parent="Cube_002" parent_id_path=PackedInt32Array(987108665) index="0" unique_id=801994037]
 
 [node name="Hitbox" type="CollisionShape3D" parent="Cube_002/Collision" index="0" unique_id=1061010917]
+shape = SubResource("BoxShape3D_swhkl")
+
+[node name="Collision" type="StaticBody3D" parent="Cube_003" parent_id_path=PackedInt32Array(706381417) index="0" unique_id=531781822]
+
+[node name="Hitbox" type="CollisionShape3D" parent="Cube_003/Collision" index="0" unique_id=1915823769]
 shape = SubResource("BoxShape3D_swhkl")
