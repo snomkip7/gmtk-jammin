@@ -12,7 +12,7 @@ offset = Vector2(-306, 60)
 script = ExtResource("1_j8pcm")
 
 [node name="DeleteTimer" type="Timer" parent="." unique_id=199021112]
-wait_time = 4.0
+wait_time = 6.0
 one_shot = true
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=1838913354]
