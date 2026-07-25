@@ -61,6 +61,10 @@ func _on_shutter_timeout() -> void:
 		print(score, "%")
 		score = sqrt(score)*1000
 		
+		if score > 250:
+			print("score capped")
+			score = 250
+		
 		print(score, " from being in the img")
 		global.score += score
 		if score > 0:
@@ -96,8 +100,14 @@ func addToScore():
 	global.player.rfb.force_raycast_update()
 	global.player.rfl.force_raycast_update()
 	global.player.rfr.force_raycast_update()
+	
+	var playerIn = false # if player is in the hitbox
+	for i in $Camera/PlayerDetection.get_overlapping_bodies():
+		if i == global.player:
+			playerIn = true
+			
 	# if face is not obscured
-	if !(global.player.rft.is_colliding() && global.player.rfb.is_colliding() && global.player.rfl.is_colliding() && global.player.rfr.is_colliding()):
+	if playerIn && !(global.player.rft.is_colliding() && global.player.rfb.is_colliding() && global.player.rfl.is_colliding() && global.player.rfr.is_colliding()):
 		global.score += faceScore
 		print("Face in photo! +", faceScore, "!")
 		
@@ -105,7 +115,9 @@ func addToScore():
 		global.player.rbl.target_position = point.global_position-global.player.rbl.global_position
 		global.player.rbr.target_position = point.global_position-global.player.rbr.global_position
 		global.player.rbb.target_position = point.global_position-global.player.rbb.global_position
-	
+		
+		
+		
 		if !(global.player.rbb.is_colliding() && global.player.rbl.is_colliding() && global.player.rbr.is_colliding()):
 			global.score += bodyScore
 			print("Body in photo! +", bodyScore, "!")
