@@ -49,16 +49,15 @@ offset_right = 821.0
 offset_bottom = 1050.0
 texture_normal = ExtResource("1_t363b")
 
-[node name="Text2" type="RichTextLabel" parent="." unique_id=1204631373]
-offset_left = 336.0
-offset_top = 539.0
-offset_right = 780.0
-offset_bottom = 726.0
-text = "START"
-metadata/_edit_use_anchors_ = true
-
 [node name="Img" type="Sprite2D" parent="." unique_id=2130346601]
 position = Vector2(1006, 345)
 texture = ExtResource("3_6jd0f")
+
+[node name="StartLabel" type="Label" parent="." unique_id=1689994048]
+offset_left = 341.0
+offset_top = 541.0
+offset_right = 381.0
+offset_bottom = 564.0
+text = "Start"
 
 [connection signal="button_down" from="StartButton" to="." method="startGame"]
