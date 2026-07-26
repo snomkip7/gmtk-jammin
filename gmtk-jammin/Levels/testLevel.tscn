@@ -17,6 +17,7 @@ ambient_light_color = Color(0.9515795, 0.95157963, 0.9515794, 1)
 [node name="TestLevel" type="Node3D" unique_id=1896238535]
 
 [node name="Environment" parent="." unique_id=561894283 instance=ExtResource("1_rbilt")]
+visible = false
 
 [node name="Gridmap" parent="." unique_id=443597621 instance=ExtResource("6_ovcht")]
 data = {
