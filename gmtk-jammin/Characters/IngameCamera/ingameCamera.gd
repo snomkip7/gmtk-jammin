@@ -1,7 +1,6 @@
 extends SubViewport
 
 @onready var shutter: Timer = $Shutter
-@onready var timeDisplay: Sprite3D = $Camera/Countdown
 @onready var point: Node3D = $Camera/Point
 @onready var animationPlayer = $AnimationPlayer
 @onready var cameraSound = $CameraSound
@@ -17,36 +16,35 @@ var timeBonus = 10 # seconds added when being in photo
 
 
 func _physics_process(delta: float) -> void:
-	
+	$Camera/Countdown.rotation.y = Vector2($Camera.global_position.x, $Camera.global_position.z).angle_to(Vector2(global.player.camera.global_position.x, global.player.camera.global_position.z)) - PI/2
 	if(active):
-		$Camera/Countdown.rotation = Vector3($Camera/Countdown.rotation.x, (-Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) + Vector2($Camera/Countdown.global_position.x, -$Camera/Countdown.global_position.z)).angle() + PI/2, $Camera/Countdown.rotation.z)
-		if !shutter.is_stopped() && shutter.time_left < .03:
-			if(global.player.flashBuffer.is_stopped()):
-				global.player.flash()
-			$Camera/Sprites.visible = false
-			global.player.doRotate = false
-			global.player.get_node("PlayerSprite").rotation = Vector3(global.player.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(global.player.global_position.x, -global.player.global_position.z)).angle() + PI/2, global.player.rotation.z)
-			if global.player.dashing:
-				global.player.animationPlayer.play("playerAnims/poseLay")
-			else:
-				global.player.animationPlayer.play("playerAnims/poseSmirk")
-			for i in NPCRays:
-				var e: CharacterBody3D = i.get_parent()
-				e.doRotate = false
-				e.get_node("NPCSprite").rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
+		if !shutter.is_stopped():
+			$Camera/Countdown.global_rotation = global.player.camera.rotation
+		
+		if !shutter.is_stopped() && shutter.time_left < .05:
+			cameraPosing()
 	else:
 		$Camera/Sprites.visible = true 
+
+func cameraPosing():
+	global.player.flash()
+	$Camera/Sprites.visible = false
+	global.player.doRotate = false
+	global.player.get_node("PlayerSprite").rotation = Vector3(global.player.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(global.player.global_position.x, -global.player.global_position.z)).angle() + PI/2, global.player.rotation.z)
+	if global.player.dashing:
+		global.player.animationPlayer.play("playerAnims/poseLay")
+	else:
+		global.player.animationPlayer.play("playerAnims/poseSmirk")
+	for i in NPCRays:
+		var e: CharacterBody3D = i.get_parent()
+		e.doRotate = false
+		e.get_node("NPCSprite").rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
+
 
 
 func _on_shutter_timeout() -> void:
 	if(active):
-		print("Timer ran out")
-		for i in NPCRays:
-			var e: CharacterBody3D = i.get_parent()
-			e.get_node("NPCSprite").rotation = Vector3(e.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(e.global_position.x, -e.global_position.z)).angle() + PI/2, e.rotation.z)
-			#e.rotation = $Camera.rotation
-		
-		global.player.get_node("PlayerSprite").rotation = Vector3(global.player.rotation.x, (-Vector2($Camera.global_position.x, -$Camera.global_position.z) + Vector2(global.player.global_position.x, -global.player.global_position.z)).angle() + PI/2, global.player.rotation.z)
+		cameraPosing()
 		
 		var img = get_texture().get_image()
 		if(img == null):
@@ -74,8 +72,11 @@ func _on_shutter_timeout() -> void:
 			score = 250
 		
 		print(score, " from being in the img")
-		global.score += score
+		score = roundf(score)
+		
 		if score > 0:
+			global.player.scoreLog.addLine("+"+str(score)+" points (Visible in the image)")
+			global.score += score
 			addToScore()
 			global.player.createImage(img)
 		
@@ -97,6 +98,7 @@ func addToScore():
 	if global.player.dashing:
 		global.score += dashScore
 		print("Dashing in the photo! +", dashScore, "!")
+		global.player.scoreLog.addLine("+"+str(dashScore)+" points (Leaping)")
 	
 	# checking if the face is the the picture
 	global.player.rft.target_position = point.global_position-global.player.rft.global_position
@@ -115,9 +117,10 @@ func addToScore():
 			playerIn = true
 			
 	# if face is not obscured
-	if playerIn && !(global.player.rft.is_colliding() && global.player.rfb.is_colliding() && global.player.rfl.is_colliding() && global.player.rfr.is_colliding()):
+	if playerIn && global.player.faceCheck.has_overlapping_areas() && !(global.player.rft.is_colliding() && global.player.rfb.is_colliding() && global.player.rfl.is_colliding() && global.player.rfr.is_colliding()):
 		global.score += faceScore
 		print("Face in photo! +", faceScore, "!")
+		global.player.scoreLog.addLine("+"+str(faceScore)+" points (Face not obscured)")
 		
 		#checking if body is in the photo
 		global.player.rbl.target_position = point.global_position-global.player.rbl.global_position
@@ -125,20 +128,23 @@ func addToScore():
 		global.player.rbb.target_position = point.global_position-global.player.rbb.global_position
 		
 		
-		
-		if !(global.player.rbb.is_colliding() && global.player.rbl.is_colliding() && global.player.rbr.is_colliding()):
+		if global.player.footCheck.has_overlapping_areas() && !(global.player.rbb.is_colliding() && global.player.rbl.is_colliding() && global.player.rbr.is_colliding()):
 			global.score += bodyScore
 			print("Body in photo! +", bodyScore, "!")
+			global.player.scoreLog.addLine("+"+str(bodyScore)+" points (Body not obscured)")
 		else:
 			print("no body in photo :(")
+			print(global.player.rbb.get_collider(),global.player.rbr.get_collider(), global.player.rbl.get_collider(), global.player.rft.get_collider(), global.player.footCheck.has_overlapping_areas())
 			
 	else:
 		print("no face in photo :(")
+		print(global.player.rft.get_collider(),global.player.rfb.get_collider(), global.player.rfl.get_collider(), global.player.rfr.get_collider(), global.player.faceCheck.has_overlapping_areas())
 	
 	for i in NPCRays:
 		i.force_raycast_update()
 		if i.is_colliding():
 			global.score += npcScore
 			print("In the way! +", npcScore, "!")
+			global.player.scoreLog.addLine("+"+str(npcScore)+" points (Blocking others)")
 	
 	print("Total Score: ", global.score)

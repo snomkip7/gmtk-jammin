@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://coar7p63wsrw5" path="res://Assets/Art/Pose_Shock/0004.png" id="13_ot7dp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
-radius = 1.0527344
+radius = 1.034668
 height = 7.125824
 
 [sub_resource type="Animation" id="Animation_cve27"]
@@ -119,8 +119,8 @@ one_shot = true
 one_shot = true
 
 [node name="CameraRay" type="RayCast3D" parent="." unique_id=1114152054]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0496855, 0)
-collision_mask = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.316956, 0)
+collision_mask = 66
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=243421698]
 libraries/ = SubResource("AnimationLibrary_tj0mn")

@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://dxe7am2jwpsoi"]
 
-[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="1_cxdpl"]
+[ext_resource type="Texture2D" uid="uid://vjtlvjnf8pjg" path="res://Assets/Art/hedge.png" id="1_cxdpl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
-size = Vector3(2.6467285, 6, 1.9572754)
+size = Vector3(3.5549316, 7.649414, 3.3554688)
 
 [node name="Hedge" type="StaticBody3D" unique_id=510709645]
 
 [node name="Hitbox" type="CollisionShape3D" parent="." unique_id=548837428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8285465, 0)
 shape = SubResource("BoxShape3D_uyxol")
 
 [node name="Sprite1" type="Sprite3D" parent="." unique_id=884113937]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3.0024767, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4.0261106, 0)
 alpha_cut = 2
 texture = ExtResource("1_cxdpl")
 
 [node name="Sprite2" type="Sprite3D" parent="." unique_id=2057787884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0024767, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.98322, 0)
 alpha_cut = 2
 texture = ExtResource("1_cxdpl")

@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://brv85e8v3ykjv"]
 
 [ext_resource type="Script" uid="uid://dbb6fyt26h2ig" path="res://Characters/IngameCamera/ingameCamera.gd" id="1_n5pxx"]
-[ext_resource type="Texture2D" uid="uid://cs58lxa1h72uq" path="res://Assets/Art/icon.svg" id="2_hjumk"]
+[ext_resource type="Texture2D" uid="uid://5mqfnossd2et" path="res://Assets/Art/cameraLeg.png" id="2_122r8"]
+[ext_resource type="Texture2D" uid="uid://tsasyf4sqiyj" path="res://Assets/Art/camera.png" id="3_eehyx"]
 [ext_resource type="Texture2D" uid="uid://deaantst3xb3o" path="res://Assets/Art/Countdown/three.png" id="3_hsnwk"]
 [ext_resource type="Texture2D" uid="uid://doolpq8dtg4u3" path="res://Assets/Art/Countdown/two.png" id="4_iudio"]
 [ext_resource type="Texture2D" uid="uid://rbywktoahvo3" path="res://Assets/Art/Countdown/one.png" id="5_122r8"]
 [ext_resource type="Texture2D" uid="uid://dogf2gmi60o33" path="res://Assets/Art/Countdown/click.png" id="6_eehyx"]
 [ext_resource type="AudioStream" uid="uid://cd2b5blpmaj46" path="res://Assets/Music/camera countdown.mp3" id="7_iudio"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bywd0"]
-load_path = "res://.godot/imported/icon.svg-18c1c52c6ac344ff8cf82551d72cfecd.s3tc.ctex"
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hjumk"]
-points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 20, 12, -16, 20, -2.75, -16, -20, 12, -16, -20, -2.75, -16)
+points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 20, 12, -16, 20, -12, -16, -20, 12, -16, -20, -12, -16)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bywd0"]
 points = PackedVector3Array(0.6, 0.6, 0, 0.6, -0.6, 0, -0.6, 0.6, 0, -0.6, -0.6, 0, 5, 2.75, -5, 5, -2.75, -5, -5, 2.75, -5, -5, -2.75, -5)
@@ -63,7 +61,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Camera/Countdown")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 1, 1, 1, 0.6667, 1, 0, 0, 0, 0.76666665, 1, 1, 1, 1, 1.3666667, 1, 0, 0, 0, 1.4333333, 1, 1, 1, 1, 2, 1, 0, 0, 0, 2.0666666, 1, 1, 1, 1)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 2, 2, 2, 0.6667, 1, 0, 0, 0, 0.76666665, 1, 2, 2, 2, 1.3666667, 1, 0, 0, 0, 1.4333333, 1, 2, 2, 2, 2, 1, 0, 0, 0, 2.0666666, 1, 2, 2, 2)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2sd"]
 _data = {
@@ -77,46 +75,38 @@ render_target_update_mode = 3
 script = ExtResource("1_n5pxx")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=245154464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.397455, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4002776, 0)
 
 [node name="Sprites" type="Node3D" parent="Camera" unique_id=1392320538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6406114, 0)
 
 [node name="Leg1" type="Sprite3D" parent="Camera/Sprites" unique_id=828999595]
-transform = Transform3D(-4.222196e-09, -1.131334e-08, 1, -0.025881905, 0.9659258, 0, -0.09659258, -0.25881904, -4.371139e-08, 0, -0.7622275, 0.23384404)
-modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.7622275, 0.97323835)
 alpha_cut = 2
-texture = SubResource("CompressedTexture2D_bywd0")
+texture = ExtResource("2_122r8")
 
 [node name="Leg2" type="Sprite3D" parent="Camera/Sprites" unique_id=1965007074]
-transform = Transform3D(0.06830127, 0.18301268, -0.70710677, -0.025881905, 0.96592575, 0, 0.06830127, 0.18301268, 0.70710677, -0.16551733, -0.7622275, -0.17771193)
-modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+transform = Transform3D(0.76061153, 0, -0.6492073, 0, 1, 0, 0.6492073, 0, 0.76061153, -0.7710919, -0.7777712, -0.6542014)
 alpha_cut = 2
-texture = SubResource("CompressedTexture2D_bywd0")
+texture = ExtResource("2_122r8")
 
 [node name="Leg3" type="Sprite3D" parent="Camera/Sprites" unique_id=1789625931]
-transform = Transform3D(-0.040821802, -0.10938167, -0.9063079, -0.025881907, 0.9659258, 0, 0.087542616, 0.23456971, -0.4226184, 0.12078285, -0.7622275, -0.2090258)
-modulate = Color(0.19076243, 0.19076231, 0.19076231, 1)
+transform = Transform3D(-0.70509976, 0, -0.7091081, 0, 1, 0, 0.7091081, 0, -0.70509976, 0.6944843, -0.7711032, -0.7042025)
 alpha_cut = 2
-texture = SubResource("CompressedTexture2D_bywd0")
-
-[node name="Box" type="Sprite3D" parent="Camera/Sprites" unique_id=984537651]
-transform = Transform3D(-8.960835e-09, 0, 1, 0, 0.19, 0, -0.205, 0, -4.371139e-08, 0, 0, -0.14195299)
-modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
-alpha_cut = 2
-texture = ExtResource("2_hjumk")
+texture = ExtResource("2_122r8")
 
 [node name="Box2" type="Sprite3D" parent="Camera/Sprites" unique_id=751586275]
-transform = Transform3D(-4.808253e-09, 0, 1, 0, 0.32, 0, -0.11, 0, -4.371139e-08, 0, 0, 0.027282327)
-modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.7888641, -0.32281867)
+flip_h = true
 alpha_cut = 2
-texture = ExtResource("2_hjumk")
+texture = ExtResource("3_eehyx")
 
 [node name="Countdown" type="Sprite3D" parent="Camera" unique_id=794738447]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87677836, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5615993, 0)
 
 [node name="PlayerDetection" type="Area3D" parent="Camera" unique_id=1110258325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
-collision_layer = 0
+collision_layer = 128
 collision_mask = 2
 
 [node name="Hitbox" type="CollisionShape3D" parent="Camera/PlayerDetection" unique_id=2129486090]

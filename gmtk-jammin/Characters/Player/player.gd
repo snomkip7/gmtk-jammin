@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-var maxSpeed = 50
-var speed = 40
+var maxSpeed = 30
+var speed = 30
 var acceleration = 5 # how fast player changes movement
 var gravity = -7
 var dashVelocity = Vector2(110, 60)
@@ -12,15 +12,16 @@ var knockbackVelocity: Vector3 = Vector3.ZERO
 var knockbackDeceleration = 7
 var photoArray: Array[Sprite2D] = []
 var doRotate = true # disables rotation
-var flashing = false
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var timer: RichTextLabel = $Camera/PhotoLayer/Timer
 @onready var photoLayer = $Camera/PhotoLayer
 @onready var cameraFlash = $Camera/PhotoLayer/CameraFlash
-@onready var flashBuffer = $FlashBuffer
-
+@onready var scoreLog = $Camera/PhotoLayer/ScoreLog
+@onready var faceCheck = $PlayerSprite/FaceIndicator
+@onready var footCheck = $PlayerSprite/FootIndicator
+@onready var flashPlayer = $FlashPlayer
 @onready var rft: RayCast3D = $PlayerSprite/Raycasts/FaceTop
 @onready var rfb: RayCast3D = $PlayerSprite/Raycasts/FaceBot
 @onready var rfl: RayCast3D = $PlayerSprite/Raycasts/FaceLeft
@@ -36,6 +37,8 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
+	$Camera/PhotoLayer/Points.text = "Score: "+str(global.score)
+	
 	if Input.is_action_just_pressed("dash") and !dashing:
 		$Dash.play()
 	if is_on_floor() && !dashing && (Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0): 
@@ -46,7 +49,8 @@ func _physics_process(_delta: float) -> void:
 	elif dashing && !is_on_floor():
 		moveVelocity = moveVelocity.move_toward(Vector3(direction.x*speed, moveVelocity.y, direction.z*speed), acceleration)
 	else:
-		animationPlayer.play("playerAnims/stand")
+		if !dashing:
+			animationPlayer.play("playerAnims/stand")
 		moveVelocity = moveVelocity.move_toward(Vector3.ZERO, acceleration)
 		if Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0:
 			direction = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized()		
@@ -64,6 +68,9 @@ func _physics_process(_delta: float) -> void:
 		rbr.position = Vector3(-.63, -1.62, 0)
 		rbl.position = Vector3(-.28, .344, 0)
 		rfb.position = Vector3(3.318, -1.08, 0)
+		faceCheck.position = Vector3(-2.04, .504, 0)
+		footCheck.position = Vector3(2.321, 2.125, 0)
+		$PlayerSprite/PoseBlocker.process_mode = Node.PROCESS_MODE_INHERIT
 		
 	if !is_on_floor():
 		moveVelocity.y += gravity
@@ -75,14 +82,8 @@ func _physics_process(_delta: float) -> void:
 	
 	move_and_slide()
 	
-	if doRotate:
+	if doRotate and animationPlayer.current_animation != "playerAnims/dash":
 		$PlayerSprite.rotation = $Camera.rotation
-	
-	if flashing && flashBuffer.time_left <= 0:
-		cameraFlash.modulate.a -= 0.1
-	
-	if(cameraFlash.modulate.a <= 0):
-		flashing = false
 	
 	if Input.is_action_just_pressed("restart"):
 		call_deferred("restart")
@@ -94,7 +95,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func dashEnd() -> void:
-	animationPlayer.play("playerAnims/stand")
 	dashing = false
 	rft.position = Vector3(0, 3.299, 0)
 	rfb.position = Vector3(0, 1.399, 0)
@@ -103,6 +103,9 @@ func dashEnd() -> void:
 	rbr.position = Vector3(-1.45, -1.16, 0)
 	rbl.position = Vector3(1.479, -1.16, 0)
 	rbb.position = Vector3(-.02, -3.3, 0)
+	faceCheck.position = Vector3(0, 2.524, 0)
+	footCheck.position = Vector3(0, -2.91, 0)
+	$PlayerSprite/PoseBlocker.process_mode = Node.PROCESS_MODE_DISABLED
 
 func createImage(img: Image) -> void:
 	var photo = PHOTO.instantiate()
@@ -127,9 +130,7 @@ func _on_camera_trigger_body_entered(body: Node3D) -> void:
 		subViewport.cameraSound.play()
 
 func flash():
-	cameraFlash.modulate.a = 1
-	flashBuffer.start()
-	flashing = true
+	flashPlayer.play("flash")
 	
 
 func restart():

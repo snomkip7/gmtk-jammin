@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bglelyfeox5if"]
+
+[ext_resource type="Texture2D" uid="uid://cacq2vthcx5e7" path="res://Assets/Art/FountainSprites/0001.png" id="1_q5fba"]
+[ext_resource type="Texture2D" uid="uid://5fn0w5p8lk46" path="res://Assets/Art/FountainSprites/0002.png" id="2_24sd6"]
+[ext_resource type="Texture2D" uid="uid://cwlf3n15r0q26" path="res://Assets/Art/FountainSprites/0003.png" id="3_bgi62"]
+[ext_resource type="Texture2D" uid="uid://ctjlmvi53s255" path="res://Assets/Art/FountainSprites/0004.png" id="4_gyub7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_shbgu"]
+height = 14.269043
+radius = 7.9257813
+
+[sub_resource type="Animation" id="Animation_kgd1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_q5fba")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Sprite3D2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_q5fba")]
+}
+
+[sub_resource type="Animation" id="Animation_dlnbc"]
+resource_name = "water"
+length = 0.6666750198684632
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_q5fba"), ExtResource("2_24sd6"), ExtResource("3_bgi62"), ExtResource("4_gyub7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Sprite3D2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666666, 0.3333333, 0.49999994),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_q5fba"), ExtResource("2_24sd6"), ExtResource("3_bgi62"), ExtResource("4_gyub7")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdenk"]
+_data = {
+&"RESET": SubResource("Animation_kgd1u"),
+&"water": SubResource("Animation_dlnbc")
+}
+
+[node name="Fountain" type="StaticBody3D" unique_id=38419022]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1382486782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.209227, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D" unique_id=222161462]
+alpha_cut = 2
+texture = ExtResource("1_q5fba")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D" unique_id=1285173643]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+alpha_cut = 2
+texture = ExtResource("1_q5fba")
+
+[node name="Hitbox" type="CollisionShape3D" parent="." unique_id=664015173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.243535, 0)
+shape = SubResource("CylinderShape3D_shbgu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=117919223]
+libraries/ = SubResource("AnimationLibrary_tdenk")
+autoplay = &"water"
