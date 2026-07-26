@@ -61,7 +61,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("Camera/Countdown")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 1, 1, 1, 0.6667, 1, 0, 0, 0, 0.76666665, 1, 1, 1, 1, 1.3666667, 1, 0, 0, 0, 1.4333333, 1, 1, 1, 1, 2, 1, 0, 0, 0, 2.0666666, 1, 1, 1, 1)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 2, 2, 2, 0.6667, 1, 0, 0, 0, 0.76666665, 1, 2, 2, 2, 1.3666667, 1, 0, 0, 0, 1.4333333, 1, 2, 2, 2, 2, 1, 0, 0, 0, 2.0666666, 1, 2, 2, 2)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2sd"]
 _data = {
@@ -102,7 +102,7 @@ alpha_cut = 2
 texture = ExtResource("3_eehyx")
 
 [node name="Countdown" type="Sprite3D" parent="Camera" unique_id=794738447]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87677836, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5615993, 0)
 
 [node name="PlayerDetection" type="Area3D" parent="Camera" unique_id=1110258325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
