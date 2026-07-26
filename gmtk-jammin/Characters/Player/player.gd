@@ -12,10 +12,10 @@ var knockbackVelocity: Vector3 = Vector3.ZERO
 var knockbackDeceleration = 7
 var photoArray: Array[Sprite2D] = []
 var doRotate = true # disables rotation
+var flashing = false
 @onready var camera: Camera3D = $Camera
 @onready var sprite: Sprite3D = $PlayerSprite
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
-@onready var flashPlayer: AnimationPlayer = $SparkleAnimationPlayer
 @onready var timer: RichTextLabel = $Camera/PhotoLayer/Timer
 @onready var photoLayer = $Camera/PhotoLayer
 @onready var cameraFlash = $Camera/PhotoLayer/CameraFlash
@@ -87,6 +87,11 @@ func _physics_process(_delta: float) -> void:
 	if doRotate and animationPlayer.current_animation != "playerAnims/dash":
 		$PlayerSprite.rotation = $Camera.rotation
 	
+	if flashing && flashBuffer.time_left <= 0:
+		cameraFlash.modulate.a -= 0.1
+	
+	if(cameraFlash.modulate.a <= 0):
+		flashing = false
 	
 	if Input.is_action_just_pressed("restart"):
 		call_deferred("restart")
@@ -133,7 +138,9 @@ func _on_camera_trigger_body_entered(body: Node3D) -> void:
 		subViewport.cameraSound.play()
 
 func flash():
-	flashPlayer.play("Flash")
+	cameraFlash.modulate.a = 1
+	flashBuffer.start()
+	flashing = true
 	
 
 func restart():
