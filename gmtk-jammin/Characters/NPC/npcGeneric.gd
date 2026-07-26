@@ -22,6 +22,9 @@ func _ready() -> void:
 	camera.NPCRays.append($CameraRay)
 
 func _physics_process(_delta: float) -> void:
+	if (global_position-global.player.global_position).length() > 30:
+		return
+	
 	# rotation
 	if doRotate:
 		$NPCSprite.rotation = Vector3(rotation.x, (Vector2(global.player.camera.global_position.x, -global.player.camera.global_position.z) - Vector2(global_position.x, -global_position.z)).angle() + PI/2, rotation.z)
