@@ -6,6 +6,8 @@ func _ready() -> void:
 	global.score = 0
 	global.musicTime = 64.75
 	global.paused = true
+	global.musicNormal.volume_linear = 1.0
+	global.musicFrantic.volume_linear = 0.0
 
 #func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("continue"):
