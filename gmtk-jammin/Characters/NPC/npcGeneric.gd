@@ -34,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 		if $AngerTimer.is_stopped():
 			$AngerTimer.start(reactionTime)
 			print("in the way!")
+			$AngerSounds.play()
 	else:
 		inTheWay = false
 	

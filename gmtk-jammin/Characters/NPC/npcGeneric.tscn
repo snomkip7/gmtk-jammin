@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7u22pqdhpro2" path="res://Assets/Art/Pose_Shock/0002.png" id="11_pwk84"]
 [ext_resource type="Texture2D" uid="uid://c21vwo4ubxrb4" path="res://Assets/Art/Pose_Shock/0003.png" id="12_kts52"]
 [ext_resource type="Texture2D" uid="uid://coar7p63wsrw5" path="res://Assets/Art/Pose_Shock/0004.png" id="13_ot7dp"]
+[ext_resource type="AudioStream" uid="uid://bp8jn88tugnlj" path="res://Assets/Music/angry1.mp3" id="14_pwk84"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t3xld"]
 radius = 1.034668
@@ -126,6 +127,9 @@ collision_mask = 66
 libraries/ = SubResource("AnimationLibrary_tj0mn")
 libraries/npcAnims = SubResource("AnimationLibrary_qw4k1")
 autoplay = &"npcAnims/standNorm"
+
+[node name="AngerSounds" type="AudioStreamPlayer3D" parent="." unique_id=227391695]
+stream = ExtResource("14_pwk84")
 
 [connection signal="timeout" from="AngerTimer" to="." method="angerCheck"]
 [connection signal="timeout" from="ActionTimer" to="." method="actionEnd"]

@@ -140,6 +140,5 @@ libraries/ = SubResource("AnimationLibrary_nt2sd")
 
 [node name="CameraSound" type="AudioStreamPlayer3D" parent="." unique_id=1601397603]
 stream = ExtResource("7_iudio")
-volume_db = 2.243
 
 [connection signal="timeout" from="Shutter" to="." method="_on_shutter_timeout"]
