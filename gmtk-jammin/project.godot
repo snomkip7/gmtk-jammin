@@ -19,6 +19,10 @@ config/icon="res://Assets/Art/icon.svg"
 
 global="*uid://bkuqcmxuj1m80"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/mode=3
