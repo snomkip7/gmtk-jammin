@@ -6,21 +6,26 @@ var time = 70
 var paused = true
 var musicNormal
 var musicFrantic
+var timeOut
 var musicTime = 64.75
 var musicFader
 var frantic = false
 var loopNormal = true
 var loopFrantic = true
+var countdown = false
 
 func _ready() -> void:
 	musicNormal = AudioStreamPlayer.new()
 	musicFrantic = AudioStreamPlayer.new()
+	timeOut = AudioStreamPlayer.new()
 	#musicNormal.process_mode = Node.PROCESS_MODE_ALWAYS
 	#musicFrantic.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(musicNormal)
 	add_child(musicFrantic)
+	add_child(timeOut)
 	musicNormal.stream = load("res://Assets/Music/gmtk game wandering.mp3")
 	musicFrantic.stream = load("res://Assets/Music/frantic wandering.mp3")
+	timeOut.stream = load("res://Assets/Music/timeout.mp3")
 	musicFrantic.volume_linear = 0.0
 
 func _physics_process(delta: float) -> void:
@@ -61,11 +66,22 @@ func _physics_process(delta: float) -> void:
 			frantic = true
 		else:
 			frantic = false
+		if ceili(time) <=5:
+			timeout()
+		else:
+			countdown = false
+			timeOut.stop()
+			
 			
 func endGame():
 	# ends the game
 	print("GAME OVER")
 	time = 80
+	
+func timeout():
+	if countdown == false:
+		timeOut.play()
+	countdown = true
 	
 func calm():
 	musicFader = create_tween()
