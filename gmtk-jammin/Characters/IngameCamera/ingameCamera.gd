@@ -16,6 +16,9 @@ var timeBonus = 10 # seconds added when being in photo
 
 
 func _physics_process(delta: float) -> void:
+	if ($Camera.global_position-global.player.global_position).length() > 50:
+		return
+	
 	$Camera/Countdown.rotation.y = Vector2($Camera.global_position.x, $Camera.global_position.z).angle_to(Vector2(global.player.camera.global_position.x, global.player.camera.global_position.z)) - PI/2
 	if(active):
 		if !shutter.is_stopped():
