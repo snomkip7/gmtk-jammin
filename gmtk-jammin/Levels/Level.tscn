@@ -15,11 +15,22 @@
 [sub_resource type="Environment" id="Environment_gtnvv"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+fog_enabled = true
 volumetric_fog_density = 0.03
 volumetric_fog_emission = Color(1, 1, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
+size = Vector3(100, 37.125, 20.41)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_t3xld"]
 size = Vector3(210.67749, 17.339478, 15.077148)
+
+[sub_resource type="Gradient" id="Gradient_345ms"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.019614711, 0.15721491, 0.038623158, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uyxol"]
+gradient = SubResource("Gradient_345ms")
 
 [node name="Level" type="Node3D" unique_id=1422228500]
 script = ExtResource("1_345ms")
@@ -201,12 +212,12 @@ camera = NodePath("../SubViewport")
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 53.98404, 4.4002776, -409.82706)
 
 [node name="Camera9" type="Node3D" parent="PictureAreas" unique_id=800027922]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.4136963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.832336)
 
 [node name="SubViewport" parent="PictureAreas/Camera9" unique_id=1578746116 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera9/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -46.28302, 4.4002776, -510.09073)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -46.28302, 4.4002776, -527.1295)
 
 [node name="Picnic" parent="PictureAreas/Camera9/SubViewport" unique_id=1771634666 instance=ExtResource("6_y3x56")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -502.3677)
@@ -263,7 +274,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 265.02542, 0, -12.1414795)
 transform = Transform3D(-0.81138957, 0, -0.58450586, 0, 1, 0, 0.58450586, 0, -0.81138957, 209.80246, 4.4002786, -517.7924)
 
 [node name="Picnic" parent="PictureAreas/Camera11/SubViewport" unique_id=312298110 instance=ExtResource("6_y3x56")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -502.3677)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -517.3871)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera11" unique_id=1538245052 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.86743, 5, -494.6798)
@@ -380,7 +391,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.96373, 0, -285.91852)
 transform = Transform3D(0.2872467, 0, 0.95785666, 0, 1, 0, -0.95785666, 0, 0.2872467, -84.74581, 4.400271, -762.0604)
 
 [node name="Picnic" parent="PictureAreas/Camera15/SubViewport" unique_id=942536858 instance=ExtResource("6_y3x56")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -502.3677)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -48.50911, 1.1288711, -514.0565)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera15" unique_id=1606852451 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.8052, 5.000002, -487.52686)
@@ -457,7 +468,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.87495, 0, -236.43011)
 transform = Transform3D(0.88062555, 0, 0.47381285, 0, 1, 0, -0.47381285, 0, 0.88062555, -206.57144, 4.4002633, -693.19464)
 
 [node name="Picnic" parent="PictureAreas/Camera17/SubViewport" unique_id=264461642 instance=ExtResource("6_y3x56")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -502.3677)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -511.5356)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera17" unique_id=769520135 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.202362, 4.999998, -477.3709)
@@ -604,7 +615,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 372.0466, 0, -282.52155)
 transform = Transform3D(0.98137933, 0, -0.19208002, 0, 1, 0, 0.19208002, 0, 0.98137933, 342.20975, 4.4002633, -745.38226)
 
 [node name="Picnic" parent="PictureAreas/Camera21/SubViewport" unique_id=492522786 instance=ExtResource("6_y3x56")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -41.435104, 1.1288711, -502.3677)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -54.90696, 1.1288711, -513.9425)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera21" unique_id=221868532 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.110657, 4.999998, -472.34314)
@@ -6946,6 +6957,12 @@ transform = Transform3D(0.55499995, 0, 0, 0, 0.555, 0, 0, 0, 0.55499995, 272.360
 camera = NodePath("../NPCCamera")
 personalSpaceSize = 15.0
 
+[node name="Border" type="StaticBody3D" parent="Decoration/Other" unique_id=266147761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 43.64363)
+
+[node name="Hitbox" type="CollisionShape3D" parent="Decoration/Other/Border" unique_id=1786229865]
+shape = SubResource("BoxShape3D_uyxol")
+
 [node name="MiddleLoader" type="Area3D" parent="Decoration" unique_id=379048124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.332916, 0, -215.69743)
 collision_layer = 0
@@ -6955,6 +6972,11 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.393036, 8.169739, -7.038574)
 shape = SubResource("BoxShape3D_t3xld")
 debug_color = Color(0.99607843, 0.003921569, 0.15686275, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoration/MiddleLoader" unique_id=792721788]
+transform = Transform3D(844.275, 0, 0, 0, 844.275, 0, 0, 0, 844.275, 0, 0, -92.74397)
+alpha_cut = 2
+texture = SubResource("GradientTexture2D_uyxol")
 
 [node name="StartLoader" type="Area3D" parent="Decoration" unique_id=719731636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.332916, 0, -403.88776)
@@ -6970,6 +6992,11 @@ debug_color = Color(0.99607843, 0.003921569, 0.15686275, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.77141, 8.169739, -7.038574)
 shape = SubResource("BoxShape3D_t3xld")
 debug_color = Color(0.99607843, 0.003921569, 0.15686275, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decoration/StartLoader" unique_id=1091601646]
+transform = Transform3D(844.275, 0, 0, 0, 844.275, 0, 0, 0, 844.275, 0, 0, -137.45343)
+alpha_cut = 2
+texture = SubResource("GradientTexture2D_uyxol")
 
 [node name="LeftLoader" type="Area3D" parent="Decoration" unique_id=228026591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.353134, 0, -516.0088)

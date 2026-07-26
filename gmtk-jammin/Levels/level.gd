@@ -25,6 +25,7 @@ func loadMiddle(_body: Node3D) -> void:
 	$Decoration/Bushes/BushLoadMiddle.visible = true
 	$Decoration/Bushes/BushLoadMiddle.process_mode = Node.PROCESS_MODE_INHERIT
 	
+	$Decoration/MiddleLoader/Sprite3D.visible = false
 
 func loadLeft(_body: Node3D) -> void:
 	$Decoration/Trees/TreeLoadLeft.visible = true
@@ -98,3 +99,5 @@ func loadStart(_body: Node3D) -> void:
 	
 	$Decoration/Hedges/HedgeLoad.visible = false
 	$Decoration/Hedges/HedgeLoad.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	$Decoration/StartLoader/Sprite3D.visible = false

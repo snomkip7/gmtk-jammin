@@ -13,6 +13,7 @@ config_version=5
 config/name="GMTK Jammin"
 run/main_scene="uid://caqkov7ly5hnc"
 config/features=PackedStringArray("4.7", "Forward Plus")
+run/max_fps=60
 config/icon="res://Assets/Art/icon.svg"
 
 [autoload]
