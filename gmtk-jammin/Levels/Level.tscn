@@ -46,22 +46,22 @@ camera = NodePath("../SubViewport")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.5503473, 2.4655583, -27.808405)
 
 [node name="Camera2" type="Node3D" parent="PictureAreas" unique_id=1568590814]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.035305, 0, -64.76863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.125422, 0, -76.98457)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera2" unique_id=419237824 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.630873, 4.8850303, -30.637127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.074907, 4.8850303, -29.931442)
 aggression = 2
 camera = NodePath("../SubViewport")
 
 [node name="NPCGeneric2" parent="PictureAreas/Camera2" unique_id=1659099763 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.309654, 4.8850303, -25.236801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.664125, 4.8850303, -26.396477)
 aggression = 1
-camera = NodePath("../../Camera3/SubViewport")
+camera = NodePath("../SubViewport")
 
 [node name="SubViewport" parent="PictureAreas/Camera2" unique_id=407486621 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera2/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.533054, 2.4655545, -93.398544)
+transform = Transform3D(0.69803333, 0, 0.7160653, 0, 1, 0, -0.7160653, 0, 0.69803333, -28.0205, 2.4655526, -96.5157)
 
 [node name="Camera3" type="Node3D" parent="PictureAreas" unique_id=1896044617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.44688, 0, -75.79408)
@@ -100,13 +100,40 @@ aggression = 1
 camera = NodePath("../SubViewport")
 
 [node name="NPCGeneric4" parent="PictureAreas/Camera4" unique_id=1326857142 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
-transform = Transform3D(0.4716268, 0, -0.29256308, 0, 0.555, 0, 0.29256308, 0, 0.4716268, -22.160728, 3.2673235, -15.174873)
+transform = Transform3D(0.55499995, 0, 0, 0, 0.555, 0, 0, 0, 0.55499995, -22.160728, 3.2673235, -15.174873)
 camera = NodePath("../SubViewport")
 
 [node name="SubViewport" parent="PictureAreas/Camera4" unique_id=452295900 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera4/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(0.74641454, 0, -0.6654813, 0, 1, 0, 0.6654813, 0, 0.74641454, 37.894516, 3.3400652, -118.47999)
+transform = Transform3D(0.98193896, 0, -0.1891985, 0, 1, 0, 0.1891985, 0, 0.98193896, 41.85244, 3.3400652, -116.5278)
+
+[node name="Camera5" type="Node3D" parent="PictureAreas" unique_id=518767983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.108154, 0, -173.02992)
+
+[node name="NPCGeneric" parent="PictureAreas/Camera5" unique_id=1490414040 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0881996, 4.8850293, -16.603561)
+aggression = 2
+camera = NodePath("../SubViewport")
+
+[node name="NPCGeneric2" parent="PictureAreas/Camera5" unique_id=531263464 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.927143, 4.885031, -11.108475)
+aggression = 1
+camera = NodePath("../SubViewport")
+
+[node name="NPCGeneric3" parent="PictureAreas/Camera5" unique_id=1368079161 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.822784, 4.8850303, -12.1684265)
+aggression = 1
+camera = NodePath("../SubViewport")
+
+[node name="NPCGeneric4" parent="PictureAreas/Camera5" unique_id=492646932 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
+transform = Transform3D(0.55499995, 0, 0, 0, 0.555, 0, 0, 0, 0.55499995, -13.790192, 3.2673197, -17.372711)
+camera = NodePath("../SubViewport")
+
+[node name="SubViewport" parent="PictureAreas/Camera5" unique_id=1573259744 instance=ExtResource("4_286st")]
+
+[node name="Camera" parent="PictureAreas/Camera5/SubViewport" index="0" unique_id=245154464]
+transform = Transform3D(-0.8419702, 0, -0.5395241, 0, 1, 0, 0.5395241, 0, -0.8419702, 35.257095, 3.3400614, -197.24187)
 
 [node name="Decoration" type="Node3D" parent="." unique_id=1511485528]
 
@@ -212,7 +239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.213373, 0, -155.03148)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.436308, 0, -173.85608)
 
 [node name="Tree34" parent="Decoration/Trees" unique_id=536389266 instance=ExtResource("5_qc8g6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.404106, 0, -183.80197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.93746, -3.8146973e-06, -195.60345)
 
 [node name="Tree35" parent="Decoration/Trees" unique_id=559815009 instance=ExtResource("5_qc8g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.53022, 0, -207.20944)
@@ -260,10 +287,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.14445, 0, -237.0011)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.3744, 0, -219.49998)
 
 [node name="Tree50" parent="Decoration/Trees" unique_id=1607194058 instance=ExtResource("5_qc8g6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.071846, 0, -169.7784)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.84989, -3.8146973e-06, -178.5465)
 
 [node name="Tree51" parent="Decoration/Trees" unique_id=389914748 instance=ExtResource("5_qc8g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.682312, 0, -291.43274)
+
+[node name="Tree52" parent="Decoration/Trees" unique_id=178967006 instance=ExtResource("5_qc8g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.10263, -3.8146973e-06, -177.57501)
+
+[node name="Tree53" parent="Decoration/Trees" unique_id=1436284971 instance=ExtResource("5_qc8g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.997108, -3.8146973e-06, -180.68773)
+
+[node name="Tree54" parent="Decoration/Trees" unique_id=1554406848 instance=ExtResource("5_qc8g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.370796, -7.6293945e-06, -174.1383)
+
+[node name="Tree55" parent="Decoration/Trees" unique_id=1920249767 instance=ExtResource("5_qc8g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.126484, -7.6293945e-06, -170.24556)
+
+[node name="Tree56" parent="Decoration/Trees" unique_id=1796017692 instance=ExtResource("5_qc8g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.17494, -3.8146973e-06, -165.40436)
 
 [node name="Bushes" type="Node3D" parent="Decoration" unique_id=1706797745]
 
@@ -391,7 +433,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.528841, 7.6293945e-06, -13
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.980381, 7.6293945e-06, -158.94585)
 
 [node name="Bush42" parent="Decoration/Bushes" unique_id=443893107 instance=ExtResource("5_q1ycg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.987295, 7.6293945e-06, -176.46968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.76534, 3.8146973e-06, -185.23778)
 
 [node name="Bush43" parent="Decoration/Bushes" unique_id=976242528 instance=ExtResource("5_q1ycg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.333422, 7.6293945e-06, -175.00493)
@@ -457,7 +499,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.110508, 7.6293945e-06, -19
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.27168, 7.6293945e-06, -205.95485)
 
 [node name="Bush64" parent="Decoration/Bushes" unique_id=1316715471 instance=ExtResource("5_q1ycg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.62964, 7.6293945e-06, -195.64824)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.407684, 3.8146973e-06, -204.41634)
 
 [node name="Bush65" parent="Decoration/Bushes" unique_id=146067021 instance=ExtResource("5_q1ycg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.32446, 7.6293945e-06, -211.1791)
@@ -537,6 +579,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.018618, 3.8146973e-06, -8
 [node name="Bush90" parent="Decoration/Bushes" unique_id=759991712 instance=ExtResource("5_q1ycg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5554523, 3.8146973e-06, -90.088455)
 
+[node name="Bush91" parent="Decoration/Bushes" unique_id=498264251 instance=ExtResource("5_q1ycg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.786446, 3.8146973e-06, -196.43561)
+
 [node name="Rocks" type="Node3D" parent="Decoration" unique_id=324839544]
 
 [node name="Rock" parent="Decoration/Rocks" unique_id=1607237479 instance=ExtResource("7_ht8ui")]
@@ -603,7 +648,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.228361, 7.6293945e-06, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.116783, 7.6293945e-06, -166.4248)
 
 [node name="Rock22" parent="Decoration/Rocks" unique_id=1480984094 instance=ExtResource("7_ht8ui")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.044838, 7.6293945e-06, -176.92569)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.295338, 7.6293945e-06, -178.8749)
 
 [node name="Rock23" parent="Decoration/Rocks" unique_id=816637876 instance=ExtResource("7_ht8ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.77405, 7.6293945e-06, -198.34088)
@@ -644,7 +689,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.269066, 2.2888184e-05, -23
 transform = Transform3D(0.96961296, 0.24464414, -1.0693735e-08, 0, -4.371139e-08, -1, -0.24464414, 0.96961296, -4.2383128e-08, 12.331002, 1.1281624, -92.35033)
 
 [node name="Picnic2" parent="Decoration/Picnics" unique_id=2078125663 instance=ExtResource("6_y3x56")]
-transform = Transform3D(0.94844353, -0.31694627, 1.3854161e-08, 0, -4.371139e-08, -1, 0.31694627, 0.94844353, -4.1457785e-08, 38.422237, 1.1281624, -175.24602)
+transform = Transform3D(0.94844353, -0.31694627, 1.3854161e-08, 0, -4.371139e-08, -1, 0.31694627, 0.94844353, -4.1457785e-08, 40.241318, 1.1281586, -187.44086)
 
 [node name="Benches" type="Node3D" parent="Decoration" unique_id=215170209]
 
@@ -658,3 +703,4 @@ transform = Transform3D(0.94844353, -0.31694627, 1.3854161e-08, 0, -4.371139e-08
 [editable path="PictureAreas/Camera2/SubViewport"]
 [editable path="PictureAreas/Camera3/SubViewport"]
 [editable path="PictureAreas/Camera4/SubViewport"]
+[editable path="PictureAreas/Camera5/SubViewport"]
