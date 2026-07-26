@@ -81,6 +81,8 @@ func endGame():
 	musicTime = 100000
 	musicFrantic.stop()
 	musicNormal.stop()
+	musicNormal.volume_linear = 1.0
+	musicFrantic.volume_linear = 0.0
 	#time = 80
 	
 func timeout():

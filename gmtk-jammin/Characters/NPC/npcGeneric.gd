@@ -17,7 +17,7 @@ var state = 1 # 1=default, 2 = acting, 3 = recovery
 @onready var startingPoint: Vector3 = global_position
 @onready var animationPlayer: Node = $AnimationPlayer
 var doRotate = true
-var anger = randi_range(0,8)
+var anger
 
 func _ready() -> void:
 	camera.NPCRays.append($CameraRay)
@@ -124,6 +124,7 @@ func actionEnd() -> void:
 	state = 3
 	
 func sound():
+	anger = randi_range(0,8)
 	if $AngerSounds.playing == false:
 		if anger == 0:
 			$AngerSounds.play()
