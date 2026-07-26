@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		if !shutter.is_stopped():
 			$Camera/Countdown.global_rotation = global.player.camera.rotation
 		
-		if !shutter.is_stopped() && shutter.time_left < .03:
+		if !shutter.is_stopped() && shutter.time_left < .05:
 			cameraPosing()
 	else:
 		$Camera/Sprites.visible = true 
