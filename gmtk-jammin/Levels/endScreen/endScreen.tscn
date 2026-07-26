@@ -24,8 +24,8 @@ grow_vertical = 2
 script = ExtResource("1_w727i")
 
 [node name="PicnicBlanket" type="Sprite2D" parent="." unique_id=726852325]
-position = Vector2(576, 324)
-scale = Vector2(1.5, 1)
+position = Vector2(616, 330)
+scale = Vector2(2.0475001, 1.30125)
 texture = ExtResource("1_1cang")
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=159764490]

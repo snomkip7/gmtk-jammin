@@ -4,6 +4,8 @@ extends Control
 
 func _ready() -> void:
 	$ScoreLabel.text = "Final Score: " + str(global.score)
+	if global.score == 0:
+		$ScoreLabel.text = "Final Score: " + str(global.score) + " nice job bigfoot"
 	global.ended = true
 
 
