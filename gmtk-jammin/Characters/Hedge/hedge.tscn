@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vjtlvjnf8pjg" path="res://Assets/Art/hedge.png" id="1_cxdpl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyxol"]
-size = Vector3(2.6467285, 7.649414, 1.9572754)
+size = Vector3(3.5549316, 7.649414, 3.3554688)
 
 [node name="Hedge" type="StaticBody3D" unique_id=510709645]
 
