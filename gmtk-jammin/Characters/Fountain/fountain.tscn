@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bglelyfeox5if"]
+
+[ext_resource type="Texture2D" uid="uid://cacq2vthcx5e7" path="res://Assets/Art/FountainSprites/0001.png" id="1_q5fba"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_shbgu"]
+height = 14.269043
+radius = 7.9257813
+
+[node name="Fountain" type="StaticBody3D" unique_id=38419022]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1382486782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.209227, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D" unique_id=222161462]
+texture = ExtResource("1_q5fba")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D" unique_id=1285173643]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+texture = ExtResource("1_q5fba")
+
+[node name="Hitbox" type="CollisionShape3D" parent="." unique_id=664015173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.243535, 0)
+shape = SubResource("CylinderShape3D_shbgu")
