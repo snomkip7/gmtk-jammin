@@ -1,5 +1,19 @@
 [gd_scene format=3 uid="uid://b3bbjhfgften4"]
 
+[ext_resource type="Texture2D" uid="uid://k5u78argtukp" path="res://Assets/Art/picnicBlanket.png" id="1_1cang"]
+[ext_resource type="Script" uid="uid://be8oidbo5h362" path="res://Characters/Other/endScreen.gd" id="1_si84s"]
+[ext_resource type="FontFile" uid="uid://dymnb6o1if0qg" path="res://Assets/Art/Font/CHILD.TTF" id="2_wl4st"]
+[ext_resource type="Texture2D" uid="uid://dsbvge1h26tre" path="res://Assets/Art/button.png" id="4_riv4r"]
+[ext_resource type="Texture2D" uid="uid://dp1h2r4mpxu3t" path="res://Assets/Art/buttonPressed.png" id="5_w727i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uyxol"]
+font = ExtResource("2_wl4st")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbpww"]
+font = ExtResource("2_wl4st")
+font_size = 32
+
 [node name="EndScreen" type="Control" unique_id=2116534308]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +21,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_si84s")
+
+[node name="PicnicBlanket" type="Sprite2D" parent="." unique_id=726852325]
+position = Vector2(576, 324)
+scale = Vector2(1.5, 1)
+texture = ExtResource("1_1cang")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=159764490]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 314.0
+offset_right = 793.0
+offset_bottom = 349.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-210, 0)
+text = "Final Score:"
+label_settings = SubResource("LabelSettings_uyxol")
+
+[node name="Button" type="TextureButton" parent="." unique_id=1456469330]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 393.0
+offset_right = 673.0
+offset_bottom = 601.0
+texture_normal = ExtResource("4_riv4r")
+texture_pressed = ExtResource("5_w727i")
+
+[node name="MainMenu" type="Label" parent="." unique_id=1034712727]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 465.0
+offset_right = 660.0
+offset_bottom = 500.0
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_jbpww")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
