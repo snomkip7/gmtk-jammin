@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://cokwfr2lb3578" path="res://Assets/Art/Run_Back/0004.png" id="6_u2wkb"]
 [ext_resource type="AudioStream" uid="uid://r30b1cpl3e5d" path="res://Assets/Music/footsteps.mp3" id="16_8k5s7"]
 [ext_resource type="AudioStream" uid="uid://pcinekwcwxqa" path="res://Assets/Music/dash.mp3" id="17_5elsd"]
+[ext_resource type="Texture2D" uid="uid://b6ro71l0jqila" path="res://Assets/Art/Sparkle/0001.png" id="17_kpgn3"]
+[ext_resource type="Texture2D" uid="uid://q7bod610bmnl" path="res://Assets/Art/Sparkle/0002.png" id="18_6ip0i"]
+[ext_resource type="Texture2D" uid="uid://vxcyhftvqo3q" path="res://Assets/Art/Sparkle/0003.png" id="19_5jopl"]
+[ext_resource type="Texture2D" uid="uid://mmul6fckpsqr" path="res://Assets/Art/Sparkle/0004.png" id="20_yee8r"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_t3xld"]
 height = 0.27441406
@@ -258,6 +262,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/PhotoLayer/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera/PhotoLayer/Sprite2D2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera/PhotoLayer/Sprite2D3:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera/PhotoLayer/Sprite2D4:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_8fwmd"]
 resource_name = "flash"
@@ -274,6 +326,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.96862745, 0.9764706, 0.92941177, 1), Color(0.8862745, 0.5137255, 0.7058824, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/PhotoLayer/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_kpgn3"), ExtResource("18_6ip0i"), ExtResource("19_5jopl"), ExtResource("20_yee8r"), null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera/PhotoLayer/Sprite2D2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_kpgn3"), ExtResource("18_6ip0i"), ExtResource("19_5jopl"), ExtResource("20_yee8r"), null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera/PhotoLayer/Sprite2D3:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_kpgn3"), ExtResource("18_6ip0i"), ExtResource("19_5jopl"), ExtResource("20_yee8r"), null]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera/PhotoLayer/Sprite2D4:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_kpgn3"), ExtResource("18_6ip0i"), ExtResource("19_5jopl"), ExtResource("20_yee8r"), null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jec2i"]
@@ -423,6 +523,22 @@ offset_right = -0.2880249
 offset_bottom = -0.06400299
 theme_override_font_sizes/font_size = 32
 text = "Score: "
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=224832233]
+position = Vector2(71, 73)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=1855040839]
+position = Vector2(71, 581)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=387763025]
+position = Vector2(1079, 62)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Camera/PhotoLayer" unique_id=1573621264]
+position = Vector2(1084, 583)
+scale = Vector2(0.4, 0.4)
 
 [node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
 one_shot = true
