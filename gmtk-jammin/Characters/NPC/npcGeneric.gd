@@ -17,7 +17,7 @@ var state = 1 # 1=default, 2 = acting, 3 = recovery
 @onready var startingPoint: Vector3 = global_position
 @onready var animationPlayer: Node = $AnimationPlayer
 var doRotate = true
-var anger = randi_range(0,2)
+var anger = randi_range(0,8)
 
 func _ready() -> void:
 	camera.NPCRays.append($CameraRay)
@@ -129,6 +129,24 @@ func sound():
 		elif anger == 1:
 			$AngerSounds.stream = load("res://Assets/Music/angry2.mp3")
 			$AngerSounds.play()
-		else:
+		elif anger == 2:
 			$AngerSounds.stream = load("res://Assets/Music/angry3.mp3")
+			$AngerSounds.play()
+		elif anger == 3:
+			$AngerSounds.stream = load("res://Assets/Music/angry4.mp3")
+			$AngerSounds.play()
+		elif anger == 4:
+			$AngerSounds.stream = load("res://Assets/Music/angry5.mp3")
+			$AngerSounds.play()
+		elif anger == 5:
+			$AngerSounds.stream = load("res://Assets/Music/angry6.mp3")
+			$AngerSounds.play()
+		elif anger == 6:
+			$AngerSounds.stream = load("res://Assets/Music/angry7.mp3")
+			$AngerSounds.play()
+		elif anger == 7:
+			$AngerSounds.stream = load("res://Assets/Music/angry8.mp3")
+			$AngerSounds.play()
+		elif anger == 8:
+			$AngerSounds.stream = load("res://Assets/Music/angry9.mp3")
 			$AngerSounds.play()
