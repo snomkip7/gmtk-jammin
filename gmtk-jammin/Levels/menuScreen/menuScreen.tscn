@@ -1,63 +1,31 @@
 [gd_scene format=3 uid="uid://caqkov7ly5hnc"]
 
 [ext_resource type="Script" uid="uid://xopvf6w4gvdy" path="res://Levels/menuScreen/menuScreen.gd" id="1_kl68o"]
-[ext_resource type="Texture2D" uid="uid://b5rs55svf0fh" path="res://Assets/Art/groundTexture.png" id="1_nglq8"]
-[ext_resource type="Texture2D" uid="uid://cxwg8nxf4jx1k" path="res://Assets/Art/Pose_Lay/0001.png" id="1_t363b"]
-[ext_resource type="Texture2D" uid="uid://c15ksmmtwrbym" path="res://Assets/Art/Pose_Smirk/0001.png" id="3_6jd0f"]
+[ext_resource type="Texture2D" uid="uid://dsbvge1h26tre" path="res://Assets/Art/button.png" id="2_6jd0f"]
+[ext_resource type="Texture2D" uid="uid://dp1h2r4mpxu3t" path="res://Assets/Art/buttonPressed.png" id="3_kl68o"]
 
-[node name="MenuScreen" type="Node2D" unique_id=782373463]
+[node name="MenuScreen" type="Control" unique_id=1759971820]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_kl68o")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1615957111]
-position = Vector2(311.5, 319.5)
-scale = Vector2(1.6175, 1.6175)
-texture = ExtResource("1_nglq8")
-
-[node name="Background2" type="Sprite2D" parent="." unique_id=118684036]
-position = Vector2(956, 321)
-scale = Vector2(1.6175, 1.6175)
-texture = ExtResource("1_nglq8")
-
-[node name="Background3" type="Sprite2D" parent="." unique_id=1214448935]
-position = Vector2(310.5, 958.5)
-scale = Vector2(1.6175, 1.6175)
-texture = ExtResource("1_nglq8")
-
-[node name="Background4" type="Sprite2D" parent="." unique_id=266647068]
-position = Vector2(955, 960)
-scale = Vector2(1.6175, 1.6175)
-texture = ExtResource("1_nglq8")
-
-[node name="Text" type="RichTextLabel" parent="." unique_id=2110059834]
-offset_left = 352.0
-offset_top = 151.0
-offset_right = 651.0
-offset_bottom = 338.0
-theme_override_colors/default_color = Color(0.96024394, 0.17152175, 0.96024394, 1)
-text = "VIDEO GAME
-CALLED
-
-PHOTOBOMB PHEVER
-
-FOR GMTK GAME JAM"
-metadata/_edit_use_anchors_ = true
-
 [node name="StartButton" type="TextureButton" parent="." unique_id=1237738447]
-offset_left = 21.0
-offset_top = 250.0
-offset_right = 821.0
-offset_bottom = 1050.0
-texture_normal = ExtResource("1_t363b")
+layout_mode = 0
+offset_left = 69.0
+offset_top = 402.0
+offset_right = 269.0
+offset_bottom = 602.0
+texture_normal = ExtResource("2_6jd0f")
+texture_pressed = ExtResource("3_kl68o")
 
-[node name="Img" type="Sprite2D" parent="." unique_id=2130346601]
-position = Vector2(1006, 345)
-texture = ExtResource("3_6jd0f")
+[node name="Label" type="Label" parent="StartButton" unique_id=468333286]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 64.0
+offset_right = 182.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.76862746, 0.3647059, 0.62352943, 1)
+theme_override_font_sizes/font_size = 40
+text = "START"
 
-[node name="StartLabel" type="Label" parent="." unique_id=1689994048]
-offset_left = 341.0
-offset_top = 541.0
-offset_right = 381.0
-offset_bottom = 564.0
-text = "Space to Start"
-
-[connection signal="button_down" from="StartButton" to="." method="startGame"]
+[connection signal="pressed" from="StartButton" to="." method="startGame"]

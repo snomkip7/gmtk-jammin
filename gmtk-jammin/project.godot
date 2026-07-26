@@ -42,6 +42,11 @@ folder_colors={
 "res://Levels/": "yellow"
 }
 
+[gui]
+
+theme/default_font_antialiasing=0
+theme/custom_font="uid://dymnb6o1if0qg"
+
 [input]
 
 forward={
