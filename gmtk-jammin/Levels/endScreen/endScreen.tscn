@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b3bbjhfgften4"]
 
 [ext_resource type="Texture2D" uid="uid://k5u78argtukp" path="res://Assets/Art/picnicBlanket.png" id="1_1cang"]
-[ext_resource type="Script" uid="uid://be8oidbo5h362" path="res://Characters/Other/endScreen.gd" id="1_si84s"]
+[ext_resource type="Script" uid="uid://be8oidbo5h362" path="res://Levels/endScreen/endScreen.gd" id="1_w727i"]
 [ext_resource type="FontFile" uid="uid://dymnb6o1if0qg" path="res://Assets/Art/Font/CHILD.TTF" id="2_wl4st"]
 [ext_resource type="Texture2D" uid="uid://dsbvge1h26tre" path="res://Assets/Art/button.png" id="4_riv4r"]
 [ext_resource type="Texture2D" uid="uid://dp1h2r4mpxu3t" path="res://Assets/Art/buttonPressed.png" id="5_w727i"]
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_si84s")
+script = ExtResource("1_w727i")
 
 [node name="PicnicBlanket" type="Sprite2D" parent="." unique_id=726852325]
 position = Vector2(576, 324)

@@ -2,6 +2,8 @@ extends Control
 
 func _ready() -> void:
 	global.ended = false
+	global.time = 60
+	global.score = 0
 
 #func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("continue"):
