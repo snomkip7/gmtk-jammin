@@ -2,7 +2,7 @@ extends Control
 
 func _ready() -> void:
 	global.ended = false
-	global.time = 6
+	global.time = 60
 	global.score = 0
 	global.musicTime = 64.75
 	global.paused = true
