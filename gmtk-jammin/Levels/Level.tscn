@@ -51,6 +51,7 @@ environment = SubResource("Environment_gtnvv")
 [node name="PictureAreas" type="Node3D" parent="." unique_id=1357895224]
 
 [node name="Camera1" type="Node3D" parent="PictureAreas" unique_id=538427042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.53157)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera1" unique_id=1804335163 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.630873, 4.8850303, -30.637127)
@@ -64,10 +65,10 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera1" unique_id=1128294062 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera1/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.5503473, 5.4924, -27.808405)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.617713, 5.4924, -40.609154)
 
 [node name="Camera2" type="Node3D" parent="PictureAreas" unique_id=1568590814]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.125422, 0, -76.98457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.692232, 0, -76.98457)
 
 [node name="NPCGeneric" parent="PictureAreas/Camera2" unique_id=419237824 node_paths=PackedStringArray("camera") instance=ExtResource("3_wbw1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.074907, 4.8850303, -29.931442)
@@ -82,7 +83,7 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera2" unique_id=407486621 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera2/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(0.69803333, 0, 0.7160653, 0, 1, 0, -0.7160653, 0, 0.69803333, -28.0205, 5.4923944, -96.5157)
+transform = Transform3D(0.69803333, 0, 0.7160653, 0, 1, 0, -0.7160653, 0, 0.69803333, -42.62331, 5.4923944, -96.5157)
 
 [node name="Camera3" type="Node3D" parent="PictureAreas" unique_id=1896044617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.44688, 0, -75.79408)
