@@ -13,6 +13,7 @@ var frantic = false
 var loopNormal = true
 var loopFrantic = true
 var countdown = false
+var ended = false
 
 func _ready() -> void:
 	musicNormal = AudioStreamPlayer.new()
@@ -51,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		loopNormal = true
 		loopFrantic = true
 		
-	if !paused:
+	if !paused && !ended:
 		time -= delta
 		if player != null && player.timer != null:
 			if ceili(time) % 60 < 10:
@@ -75,6 +76,7 @@ func _physics_process(delta: float) -> void:
 			
 func endGame():
 	# ends the game
+	get_tree().change_scene_to_file("res://Levels/endScreen/endScreen.tscn")
 	print("GAME OVER")
 	musicTime = 100000
 	musicFrantic.stop()
