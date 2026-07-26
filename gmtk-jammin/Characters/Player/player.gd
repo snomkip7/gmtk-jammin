@@ -49,7 +49,8 @@ func _physics_process(_delta: float) -> void:
 	elif dashing && !is_on_floor():
 		moveVelocity = moveVelocity.move_toward(Vector3(direction.x*speed, moveVelocity.y, direction.z*speed), acceleration)
 	else:
-		animationPlayer.play("playerAnims/stand")
+		if !dashing:
+			animationPlayer.play("playerAnims/stand")
 		moveVelocity = moveVelocity.move_toward(Vector3.ZERO, acceleration)
 		if Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0:
 			direction = Vector3(Input.get_axis("left", "right"), 0, Input.get_axis("forward", "backward")).normalized()		
@@ -81,7 +82,7 @@ func _physics_process(_delta: float) -> void:
 	
 	move_and_slide()
 	
-	if doRotate:
+	if doRotate and animationPlayer.current_animation != "playerAnims/dash":
 		$PlayerSprite.rotation = $Camera.rotation
 	
 	if flashing && flashBuffer.time_left <= 0:
@@ -100,7 +101,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func dashEnd() -> void:
-	animationPlayer.play("playerAnims/stand")
 	dashing = false
 	rft.position = Vector3(0, 3.299, 0)
 	rfb.position = Vector3(0, 1.399, 0)
