@@ -100,13 +100,13 @@ alpha_cut = 2
 texture = SubResource("CompressedTexture2D_bywd0")
 
 [node name="Box" type="Sprite3D" parent="Camera/Sprites" unique_id=984537651]
-transform = Transform3D(-8.960835e-09, 0, 1, 0, 0.19, 0, -0.205, 0, -4.371139e-08, 0, 0, -0.14195299)
+transform = Transform3D(-8.960835e-09, 0, 1, 0, 0.19, 0, -0.205, 0, -4.371139e-08, 0, 0.062634945, -0.14195299)
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
 alpha_cut = 2
 texture = ExtResource("2_hjumk")
 
 [node name="Box2" type="Sprite3D" parent="Camera/Sprites" unique_id=751586275]
-transform = Transform3D(-4.808253e-09, 0, 1, 0, 0.32, 0, -0.11, 0, -4.371139e-08, 0, 0, 0.027282327)
+transform = Transform3D(-4.808253e-09, 0, 1, 0, 0.32, 0, -0.11, 0, -4.371139e-08, 0, 0.062634945, 0.027282327)
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
 alpha_cut = 2
 texture = ExtResource("2_hjumk")
