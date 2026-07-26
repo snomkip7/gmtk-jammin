@@ -371,6 +371,19 @@ text = "
 vertical_alignment = 2
 script = ExtResource("3_5elsd")
 
+[node name="Points" type="Label" parent="Camera/PhotoLayer" unique_id=401566346]
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = -0.002
+anchor_right = 0.344
+anchor_bottom = 0.068
+offset_left = -0.36800098
+offset_top = 0.296
+offset_right = -0.2880249
+offset_bottom = -0.06400299
+theme_override_font_sizes/font_size = 32
+text = "Score: "
+
 [node name="DashCooldown" type="Timer" parent="." unique_id=793433495]
 one_shot = true
 

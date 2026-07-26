@@ -39,6 +39,8 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
+	$Camera/PhotoLayer/Points.text = "Score: "+str(global.score)
+	
 	if Input.is_action_just_pressed("dash") and !dashing:
 		$Dash.play()
 	if is_on_floor() && !dashing && (Input.get_axis("backward", "forward") != 0 || Input.get_axis("left", "right") != 0): 
