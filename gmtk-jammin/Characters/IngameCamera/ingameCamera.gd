@@ -12,7 +12,7 @@ var bodyScore = 25
 var dashScore = 70
 var npcScore = 80
 var active: bool = true
-var timeBonus = 10 # seconds added when being in photo
+var timeBonus = 4 # seconds added when being in photo
 
 
 func _physics_process(delta: float) -> void:

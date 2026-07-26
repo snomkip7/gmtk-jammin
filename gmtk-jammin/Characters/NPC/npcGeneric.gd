@@ -105,6 +105,7 @@ func trigger(severity: float = 1): # after a photo has been photobombed, severit
 	if aggression == 3: #chases after you
 		animationPlayer.play("npcAnims/standAngry")
 		if (global.player.global_position-global_position).length() <= pushRadius:
+			global.time -= 5
 			global.player.knockbackVelocity = (global.player.global_position-global_position).normalized() * pushForce * (severity/3+1)
 		if $ActionTimer.is_stopped() && state == 1:
 			$ActionTimer.start(severity/2)
