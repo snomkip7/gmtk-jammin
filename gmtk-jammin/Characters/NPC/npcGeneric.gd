@@ -17,6 +17,7 @@ var state = 1 # 1=default, 2 = acting, 3 = recovery
 @onready var startingPoint: Vector3 = global_position
 @onready var animationPlayer: Node = $AnimationPlayer
 var doRotate = true
+var anger = randi_range(0,2)
 
 func _ready() -> void:
 	camera.NPCRays.append($CameraRay)
@@ -37,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 		if $AngerTimer.is_stopped():
 			$AngerTimer.start(reactionTime)
 			print("in the way!")
-			$AngerSounds.play()
+			
 	else:
 		inTheWay = false
 	
@@ -89,6 +90,7 @@ func _physics_process(_delta: float) -> void:
 
 func trigger(severity: float = 1): # after a photo has been photobombed, severity = how much reaction (1-3)
 	print("acting with severity: ", severity)
+	sound()
 	if aggression == 0: #do nothing
 		animationPlayer.play("npcAnims/standShock") 
 	if aggression == 1: # gets annoyed
@@ -119,3 +121,14 @@ func angerCheck() -> void: # check if player is still too close
 
 func actionEnd() -> void:
 	state = 3
+	
+func sound():
+	if $AngerSounds.playing == false:
+		if anger == 0:
+			$AngerSounds.play()
+		elif anger == 1:
+			$AngerSounds.stream = load("res://Assets/Music/angry2.mp3")
+			$AngerSounds.play()
+		else:
+			$AngerSounds.stream = load("res://Assets/Music/angry3.mp3")
+			$AngerSounds.play()
