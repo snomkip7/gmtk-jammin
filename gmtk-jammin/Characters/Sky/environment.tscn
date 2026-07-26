@@ -2,7 +2,7 @@
 
 [sub_resource type="Environment" id="Environment_xqwf6"]
 background_mode = 1
-background_color = Color(0.96862745, 0.9137255, 0.7607843, 1)
+background_color = Color(0.96862745, 0.9764706, 0.92941177, 1)
 glow_enabled = true
 
 [node name="Environment" type="Node3D" unique_id=561894283]
