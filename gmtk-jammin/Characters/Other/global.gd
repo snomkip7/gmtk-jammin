@@ -76,7 +76,10 @@ func _physics_process(delta: float) -> void:
 func endGame():
 	# ends the game
 	print("GAME OVER")
-	time = 80
+	musicTime = 100000
+	musicFrantic.stop()
+	musicNormal.stop()
+	#time = 80
 	
 func timeout():
 	if countdown == false:
