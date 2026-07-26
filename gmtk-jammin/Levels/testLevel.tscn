@@ -61,7 +61,7 @@ camera = NodePath("../IngameCamera")
 [node name="IngameCamera2" parent="." unique_id=1128294062 instance=ExtResource("4_faoc1")]
 
 [node name="Camera" parent="IngameCamera2" index="0" unique_id=245154464]
-transform = Transform3D(0.91067505, 0, -0.4131234, 0, 1, 0, 0.4131234, 0, 0.91067505, 22.9432, 1.5380797, 59.373695)
+transform = Transform3D(0.91067505, 0, -0.4131234, 0, 1, 0, 0.4131234, 0, 0.91067505, 22.9432, 3.3493366, 59.373695)
 
 [node name="CameraCollision" parent="IngameCamera2/Camera" index="4" unique_id=341722982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -357,7 +357,7 @@ environment = SubResource("Environment_uyxol")
 [node name="ingameCamera3" parent="." unique_id=650427791 instance=ExtResource("4_faoc1")]
 
 [node name="Camera" parent="ingameCamera3" index="0" unique_id=245154464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.496735, 1.3974473, -73.158554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.496735, 3.4064014, -73.158554)
 
 [node name="NPCGeneric7" parent="." unique_id=1495837434 node_paths=PackedStringArray("camera") instance=ExtResource("5_owrup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.850304, 3, -90.264084)

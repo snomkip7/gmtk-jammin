@@ -43,7 +43,7 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera1" unique_id=1128294062 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera1/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.5503473, 2.4655583, -27.808405)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.5503473, 5.4924, -27.808405)
 
 [node name="Camera2" type="Node3D" parent="PictureAreas" unique_id=1568590814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.125422, 0, -76.98457)
@@ -61,7 +61,7 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera2" unique_id=407486621 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera2/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(0.69803333, 0, 0.7160653, 0, 1, 0, -0.7160653, 0, 0.69803333, -28.0205, 2.4655526, -96.5157)
+transform = Transform3D(0.69803333, 0, 0.7160653, 0, 1, 0, -0.7160653, 0, 0.69803333, -28.0205, 5.4923944, -96.5157)
 
 [node name="Camera3" type="Node3D" parent="PictureAreas" unique_id=1896044617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.44688, 0, -75.79408)
@@ -79,7 +79,7 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera3" unique_id=856383008 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera3/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(-0.9983293, 0, 0.05778124, 0, 1, 0, -0.05778124, 0, -0.9983293, 12.687403, 3.3400652, -103.41162)
+transform = Transform3D(-0.9983293, 0, 0.05778124, 0, 1, 0, -0.05778124, 0, -0.9983293, 12.687403, 6.366907, -103.41162)
 
 [node name="Camera4" type="Node3D" parent="PictureAreas" unique_id=1145879398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.52095, 0, -110.50064)
@@ -106,7 +106,7 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera4" unique_id=452295900 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera4/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(0.98193896, 0, -0.1891985, 0, 1, 0, 0.1891985, 0, 0.98193896, 41.85244, 3.3400652, -116.5278)
+transform = Transform3D(0.9819389, 0, -0.18919848, 0, 1, 0, 0.18919848, 0, 0.9819389, 41.85244, 6.366907, -116.5278)
 
 [node name="Camera5" type="Node3D" parent="PictureAreas" unique_id=518767983]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.108154, 0, -173.02992)
@@ -133,7 +133,7 @@ camera = NodePath("../SubViewport")
 [node name="SubViewport" parent="PictureAreas/Camera5" unique_id=1573259744 instance=ExtResource("4_286st")]
 
 [node name="Camera" parent="PictureAreas/Camera5/SubViewport" index="0" unique_id=245154464]
-transform = Transform3D(-0.8419702, 0, -0.5395241, 0, 1, 0, 0.5395241, 0, -0.8419702, 35.257095, 3.3400614, -197.24187)
+transform = Transform3D(-0.8419702, 0, -0.5395241, 0, 1, 0, 0.5395241, 0, -0.8419702, 35.257095, 6.3669033, -197.24187)
 
 [node name="Decoration" type="Node3D" parent="." unique_id=1511485528]
 
