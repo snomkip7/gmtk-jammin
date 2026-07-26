@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-var maxSpeed = 50
-var speed = 40
+var maxSpeed = 30
+var speed = 30
 var acceleration = 5 # how fast player changes movement
 var gravity = -7
 var dashVelocity = Vector2(110, 60)
